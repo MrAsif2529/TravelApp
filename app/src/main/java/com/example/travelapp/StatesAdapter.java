@@ -31,24 +31,21 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
     @Override
     public void onBindViewHolder(@NonNull StatesViewHolder holder, int position) {
-        StateRecyclerViewItem stateRecyclerViewItem = statesdata.get(position);
-        holder.cityname.setText(stateRecyclerViewItem.getStateCityName());
-        holder.cityimage.setImageResource(stateRecyclerViewItem.getCityImage());
+        StateRecyclerViewItem clickedItem = statesdata.get(position);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Retrieve the clicked item data
-                StateRecyclerViewItem clickedItem = statesdata.get(position);
+        holder.cityname.setText(clickedItem.getStateCityName());
+        holder.cityimage.setImageResource(clickedItem.getCityImage());
 
-                // Start the new activity here, passing data if needed
-                Intent intent = new Intent(context, PlaceViewActivity.class);
-                intent.putExtra("cityname",  clickedItem.getStateCityName());
-                intent.putExtra("cityimage", clickedItem.getCityImage());
-                intent.putExtra("citydetails", clickedItem.getCityDetails());// Example data passing
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(view -> {
+            // Retrieve the clicked item data
+
+            // Start the new activity here, passing data if needed
+            Intent intent = new Intent(context, PlaceViewActivity.class);
+            intent.putExtra("cityname",  clickedItem.getStateCityName());
+            intent.putExtra("cityimage", clickedItem.getCityImage());
+//                intent.putExtra("citydetails", clickedItem.getCityDetails());// Example data passing
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
         });
     }
 

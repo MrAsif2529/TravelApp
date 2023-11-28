@@ -98,12 +98,9 @@ public class HomeFragment extends Fragment {
 
 
         popularRecyclerView = view.findViewById(R.id.popularRecyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(inflater.getContext(), HORIZONTAL, false);
-        popularRecyclerView.setLayoutManager(layoutManager);
+        popularRecyclerView.setLayoutManager(new LinearLayoutManager(inflater.getContext(), HORIZONTAL, false));
 
-        List<PopularRecyclerViewItem> citiesItemList = new ArrayList<>();
-
-        PopulorAdapter adapter = new PopulorAdapter(citiesItemList);
+        PopulorAdapter adapter = new PopulorAdapter(dubai());
         popularRecyclerView.setAdapter(adapter);
 
         return view;

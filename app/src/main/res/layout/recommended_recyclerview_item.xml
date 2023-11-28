@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp">
@@ -26,16 +25,44 @@
         app:layout_constraintTop_toTopOf="@id/view"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/recCityImage"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:background="@drawable/rounded_style"
-            android:scaleType="fitXY"
-            android:src="@drawable/burj_khalifa" />
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/White"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@id/view">
+
+            <ImageView
+                android:id="@+id/recCityImage"
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"
+                android:background="@drawable/rounded_style"
+                android:scaleType="fitXY"
+                android:src="@drawable/burj_khalifa" />
+
+            <TextView
+                android:id="@+id/recRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="110dp"
+                android:background="@drawable/label_background"
+                android:backgroundTint="@color/Gray"
+                android:drawableLeft="@drawable/baseline_star_24"
+                android:fontFamily="@font/dmsans"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:text="4.5"
+                android:textColor="@color/White"
+                android:textColorHint="@color/White"
+                android:textSize="10sp" />
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/recCityName"
@@ -52,22 +79,6 @@
             android:textColorHint="@color/White"
             android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/recRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="110dp"
-            android:background="@drawable/label_background"
-            android:backgroundTint="@color/Gray"
-            android:drawableLeft="@drawable/baseline_star_24"
-            android:fontFamily="@font/dmsans"
-            android:gravity="center"
-            android:paddingLeft="5dp"
-            android:text="4.5"
-            android:textColor="@color/White"
-            android:textColorHint="@color/White"
-            android:textSize="10sp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"

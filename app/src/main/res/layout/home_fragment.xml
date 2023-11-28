@@ -5,89 +5,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:scrollbars="none"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Your TextViews -->
-
-        <TextView
-            android:id="@+id/dubai"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="10dp"
-            android:text="Dubai"
-            android:textColor="@color/Gray"
-            android:textSize="14sp" />
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextSearch">
 
-        <!-- Add more TextViews as needed -->
+            <!-- Your TextViews -->
 
-        <TextView
-            android:id="@+id/abudhabi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="10dp"
-            android:text="Abu Dhabi"
-            android:textColor="@color/Gray"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/dubai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Dubai"
+                android:textColor="@color/Gray"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/sharjah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="10dp"
-            android:text="Sharjah"
-            android:textColor="@color/Gray"
-            android:textSize="14sp" />
+            <!-- Add more TextViews as needed -->
 
-        <TextView
-            android:id="@+id/ajman"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="10dp"
-            android:text="Ajman"
-            android:textColor="@color/Gray"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/abudhabi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Abu Dhabi"
+                android:textColor="@color/Gray"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/khaimah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="10dp"
-            android:text="Ras Al Khaimah"
-            android:textColor="@color/Gray"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/sharjah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Sharjah"
+                android:textColor="@color/Gray"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/fujariah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="10dp"
-            android:text="Fujariah"
-            android:textColor="@color/Gray"
-            android:textSize="14sp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/ajman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Ajman"
+                android:textColor="@color/Gray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/khaimah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Ras Al Khaimah"
+                android:textColor="@color/Gray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/fujariah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Fujariah"
+                android:textColor="@color/Gray"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="Populor"
         android:textColor="@color/Black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintStart_toStartOf="@+id/horizontalScrollView"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
     <TextView
         android:id="@+id/seeAll"
@@ -105,12 +116,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/popularRecyclerView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/horizontalScrollView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
