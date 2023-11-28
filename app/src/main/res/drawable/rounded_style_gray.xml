@@ -1,0 +1,6 @@
+<!-- rounded_style_gray.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#C0C0C0"/> <!-- Use your desired shade of gray -->
+    <corners android:radius="30dp"/> <!-- Adjust the radius for rounding corners -->
+</shape>
