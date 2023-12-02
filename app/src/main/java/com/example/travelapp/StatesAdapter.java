@@ -14,10 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesViewHolder> {
-    private List<StateRecyclerViewItem> statesdata;
     private final Context context;
-    public StatesAdapter(List<StateRecyclerViewItem> statesdata,Context context) {
-        this.statesdata= statesdata;
+    private List<RecRecyclerViewItem> statesdata;
+
+    public StatesAdapter(List<RecRecyclerViewItem> statesdata, Context context) {
+        this.statesdata = statesdata;
         this.context = context;
 
     }
@@ -31,18 +32,18 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
     @Override
     public void onBindViewHolder(@NonNull StatesViewHolder holder, int position) {
-        StateRecyclerViewItem clickedItem = statesdata.get(position);
+        RecRecyclerViewItem clickedItem = statesdata.get(position);
 
-        holder.cityname.setText(clickedItem.getStateCityName());
-        holder.cityimage.setImageResource(clickedItem.getCityImage());
+        holder.cityname.setText(clickedItem.getRecCityName());
+        holder.cityimage.setImageResource(clickedItem.getRecCityImage());
 
         holder.itemView.setOnClickListener(view -> {
             // Retrieve the clicked item data
 
             // Start the new activity here, passing data if needed
             Intent intent = new Intent(context, PlaceViewActivity.class);
-            intent.putExtra("cityname",  clickedItem.getStateCityName());
-            intent.putExtra("cityimage", clickedItem.getCityImage());
+            intent.putExtra("cityname", clickedItem.getRecCityName());
+            intent.putExtra("cityimage", clickedItem.getRecCityImage());
 //                intent.putExtra("citydetails", clickedItem.getCityDetails());// Example data passing
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
@@ -56,8 +57,8 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
 
     public static class StatesViewHolder extends RecyclerView.ViewHolder {
-        private TextView cityname;
         ImageView cityimage;
+        private TextView cityname;
 
         public StatesViewHolder(@NonNull View itemView) {
             super(itemView);

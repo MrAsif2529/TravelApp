@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="236dp"-->
+<!--        android:layout_height="173dp"-->
+<!--        android:elevation="30dp"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="227dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/Black"
         app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@id/view"
-        app:layout_constraintVertical_bias="0.0">
+        app:cardElevation="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_width="220dp"
+            android:layout_height="132dp"
             android:layout_margin="5dp"
-            app:cardBackgroundColor="@color/White"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@id/view">
+            app:cardBackgroundColor="#F9F9F9"
+            app:cardCornerRadius="10dp">
 
             <ImageView
                 android:id="@+id/recCityImage"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/rounded_style"
                 android:scaleType="fitXY"
                 android:src="@drawable/burj_khalifa" />
@@ -83,7 +86,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
+            android:layout_marginStart="200dp"
             android:layout_marginTop="140dp"
             android:background="@drawable/curve_shap"
             android:src="@drawable/baseline_favorite_24" />

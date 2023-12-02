@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextSearch">
 
@@ -30,10 +31,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:text="Dubai"
                 android:textColor="@color/Gray"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
 
             <!-- Add more TextViews as needed -->
 
@@ -42,50 +43,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:text="Abu Dhabi"
                 android:textColor="@color/Gray"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/sharjah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:text="Sharjah"
                 android:textColor="@color/Gray"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/ajman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:text="Ajman"
                 android:textColor="@color/Gray"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/khaimah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:text="Ras Al Khaimah"
                 android:textColor="@color/Gray"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/fujariah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:text="Fujariah"
                 android:textColor="@color/Gray"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -97,6 +98,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="Populor"
         android:textColor="@color/Black"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="@+id/horizontalScrollView"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
@@ -118,7 +120,7 @@
         android:id="@+id/popularRecyclerView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="@+id/horizontalScrollView"
@@ -143,6 +145,7 @@
         android:id="@+id/recRecyclerView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,7 +8,6 @@ import static com.example.travelapp.Constants.FAJOURIA;
 import static com.example.travelapp.Constants.RASUL_ALHAIMA;
 import static com.example.travelapp.Constants.SHARJAH;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +28,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recRecyclerView;
 
     private RecAdapter mRecAdapter;
+    private int selectedList = ABUDABI;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,9 +38,12 @@ public class HomeFragment extends Fragment {
         TextView seeAll = view.findViewById(R.id.seeAll);
 
         seeAll.setOnClickListener(v -> {
+            SeeAllFragment fragment = new SeeAllFragment();
+            fragment.setItemsList(filterCity(selectedList));
 
-            Intent intent = new Intent(inflater.getContext(), StatePlacesActivity.class);
-            startActivity(intent);
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
         });
 
         recRecyclerView = view.findViewById(R.id.recRecyclerView);
@@ -55,19 +58,20 @@ public class HomeFragment extends Fragment {
         dubai = view.findViewById(R.id.dubai);
         dubai.setOnClickListener(v -> {
             changeBackground(dubai);
+            selectedList = DUBAI;
             mRecAdapter.refresh(filterCity(DUBAI));
         });
 
         abudhabi = view.findViewById(R.id.abudhabi);
         abudhabi.setOnClickListener(view1 -> {
-
+            selectedList = ABUDABI;
             changeBackground(abudhabi);
             mRecAdapter.refresh(filterCity(ABUDABI));
         });
 
         sharjah = view.findViewById(R.id.sharjah);
         sharjah.setOnClickListener(view12 -> {
-
+            selectedList = SHARJAH;
             changeBackground(sharjah);
             mRecAdapter.refresh(filterCity(SHARJAH));
 
@@ -75,7 +79,7 @@ public class HomeFragment extends Fragment {
 
         ajman = view.findViewById(R.id.ajman);
         ajman.setOnClickListener(view13 -> {
-
+            selectedList = AJMAN;
             changeBackground(ajman);
             mRecAdapter.refresh(filterCity(AJMAN));
 
@@ -83,6 +87,7 @@ public class HomeFragment extends Fragment {
 
         khaima = view.findViewById(R.id.khaimah);
         khaima.setOnClickListener(view14 -> {
+            selectedList = RASUL_ALHAIMA;
             changeBackground(khaima);
             mRecAdapter.refresh(filterCity(RASUL_ALHAIMA));
 
@@ -90,7 +95,7 @@ public class HomeFragment extends Fragment {
 
         fujariah = view.findViewById(R.id.fujariah);
         fujariah.setOnClickListener(view15 -> {
-
+            selectedList = FAJOURIA;
             changeBackground(fujariah);
             mRecAdapter.refresh(filterCity(FAJOURIA));
 
