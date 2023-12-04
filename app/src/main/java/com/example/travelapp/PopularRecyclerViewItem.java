@@ -8,6 +8,7 @@ public class PopularRecyclerViewItem  {
     private String popularcityname;
     private String cityrating;
     private  int cityimage;
+    private int favHeart;
 
     public PopularRecyclerViewItem(String popularcityname,int cityimage){
     this.popularcityname= popularcityname;

@@ -148,6 +148,7 @@ public class HomeFragment extends Fragment {
         List<PopularRecyclerViewItem> data = new ArrayList<>(); // Your data list
         data.add(new PopularRecyclerViewItem("sharjah", R.drawable.burj_khalifa));
         data.add(new PopularRecyclerViewItem("sharjah2", R.drawable.populard));
+
         return data;
     }
 
@@ -181,9 +182,29 @@ public class HomeFragment extends Fragment {
 
         citydata.add(new RecRecyclerViewItem("Abudhabi", R.drawable.populard, ABUDABI));
         citydata.add(new RecRecyclerViewItem("ABUDHABI", R.drawable.burj_khalifa, ABUDABI));
-
         citydata.add(new RecRecyclerViewItem("SHARJAH", R.drawable.burj_khalifa, SHARJAH));
         citydata.add(new RecRecyclerViewItem("Sharjah", R.drawable.populard, SHARJAH));
+
+        citydata.add(new RecRecyclerViewItem("Ajman", R.drawable.populard, AJMAN));
+        citydata.add(new RecRecyclerViewItem("AJMAN", R.drawable.burj_khalifa, AJMAN));
+
+        citydata.add(new RecRecyclerViewItem("Ras al Khaima", R.drawable.populard, RASUL_ALHAIMA));
+        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, RASUL_ALHAIMA));
+
+        citydata.add(new RecRecyclerViewItem("Burj ul Arab", R.drawable.populard, FAJOURIA));
+        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, FAJOURIA));
+        citydata.add(new RecRecyclerViewItem("SHARJAH", R.drawable.burj_khalifa, SHARJAH));
+        citydata.add(new RecRecyclerViewItem("Sharjah", R.drawable.populard, SHARJAH)); citydata.add(new RecRecyclerViewItem("SHARJAH", R.drawable.burj_khalifa, SHARJAH));
+        citydata.add(new RecRecyclerViewItem("Sharjah", R.drawable.populard, SHARJAH));
+
+        citydata.add(new RecRecyclerViewItem("Ajman", R.drawable.populard, AJMAN));
+        citydata.add(new RecRecyclerViewItem("AJMAN", R.drawable.burj_khalifa, AJMAN));
+
+        citydata.add(new RecRecyclerViewItem("Ras al Khaima", R.drawable.populard, RASUL_ALHAIMA));
+        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, RASUL_ALHAIMA));
+
+        citydata.add(new RecRecyclerViewItem("Burj ul Arab", R.drawable.populard, FAJOURIA));
+        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, FAJOURIA));
 
         citydata.add(new RecRecyclerViewItem("Ajman", R.drawable.populard, AJMAN));
         citydata.add(new RecRecyclerViewItem("AJMAN", R.drawable.burj_khalifa, AJMAN));

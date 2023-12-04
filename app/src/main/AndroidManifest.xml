@@ -13,10 +13,13 @@
         android:theme="@style/Theme.TravelApp"
         tools:targetApi="31">
         <activity
+            android:name=".Search_Activity"
+            android:exported="false" />
+        <activity
             android:name=".SeeAllFragment"
             android:exported="false" />
         <activity
-            android:name=".FavouritesActivity"
+            android:name=".FavouritesFragment"
             android:exported="false" />
         <activity
             android:name=".PlaceViewActivity"

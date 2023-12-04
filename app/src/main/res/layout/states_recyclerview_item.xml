@@ -59,17 +59,18 @@
             android:gravity="center"
             android:paddingLeft="5dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="170dp"
             android:text="4.5"
             android:fontFamily="@font/dmsans"
             android:textColor="@color/White"
             android:textColorHint="@color/White"
             android:textSize="10sp" />
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/favHeart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_favorite_24"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="170dp"
             android:background="@drawable/curve_shap"
             android:layout_marginStart="130dp"/>
 

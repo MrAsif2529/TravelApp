@@ -41,11 +41,13 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
     public static class PopularViewHolder extends RecyclerView.ViewHolder {
         private TextView popularcityname;
         ImageView cityimage;
+        ImageView favHeart;
 
         public PopularViewHolder(@NonNull View itemView) {
             super(itemView);
             popularcityname = itemView.findViewById(R.id.popularcityname);
             cityimage = itemView.findViewById(R.id.cityimage);
+            favHeart = itemView.findViewById(R.id.favHeart);
         }
     }
 }

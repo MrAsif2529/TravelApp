@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    tools:context=".PopularRecyclerViewItem">
+    tools:context=".FavoritesRecyclerViewItem">
 
     <View
         android:id="@+id/view"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="@id/view">
 
         <ImageView
-            android:id="@+id/cityimage"
+            android:id="@+id/favcityimage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
@@ -36,7 +36,7 @@
             android:src="@drawable/burj_khalifa" />
 
         <TextView
-            android:id="@+id/popularcityname"
+            android:id="@+id/favcityname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/label_background"
@@ -51,7 +51,7 @@
             android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/favrating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/label_background"
