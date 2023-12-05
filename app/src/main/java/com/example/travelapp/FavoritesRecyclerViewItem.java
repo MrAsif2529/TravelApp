@@ -8,7 +8,7 @@ public class FavoritesRecyclerViewItem  {
     private String favcityrating;
     private  int favcityimage;
 
-    public FavoritesRecyclerViewItem(String favpopularcityname,int favcityimage){
+    public FavoritesRecyclerViewItem(String favcityname,int favcityimage){
         this.favcityname= favcityname;
         this.favcityimage= favcityimage;
 
