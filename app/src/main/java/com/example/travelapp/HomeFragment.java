@@ -9,6 +9,7 @@ import static com.example.travelapp.Constants.RASUL_ALHAIMA;
 import static com.example.travelapp.Constants.SHARJAH;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,9 @@ public class HomeFragment extends Fragment {
     private RecAdapter mRecAdapter;
     private int selectedList = ABUDABI;
 
+    private List<String> favList = new ArrayList<>();
+    private static final String TAG = "HomeFragment";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -41,21 +45,30 @@ public class HomeFragment extends Fragment {
             SeeAllFragment fragment = new SeeAllFragment();
             fragment.setItemsList(filterCity(selectedList));
 
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
         });
 
         recRecyclerView = view.findViewById(R.id.recRecyclerView);
-        LinearLayoutManager layoutManagerx = new LinearLayoutManager(inflater.getContext(), HORIZONTAL, false);
-        recRecyclerView.setLayoutManager(layoutManagerx);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(inflater.getContext(), HORIZONTAL, false);
+        recRecyclerView.setLayoutManager(layoutManager);
 
 
-        mRecAdapter = new RecAdapter(filterCity(DUBAI));
+        mRecAdapter = new RecAdapter(filterCity(DUBAI), new RecAdapter.IRecommendListener() {
+            @Override
+            public void onClick(RecommendLocations item) {
+                Log.d(TAG, "open details view activity");
+            }
+
+            @Override
+            public void onFave(RecommendLocations item) {
+                favList.add(item.getRecCityName());
+                Log.d(TAG, "onFave selected");
+            }
+        }, favList);
+
         recRecyclerView.setAdapter(mRecAdapter);
-
-
         dubai = view.findViewById(R.id.dubai);
+
         dubai.setOnClickListener(v -> {
             changeBackground(dubai);
             selectedList = DUBAI;
@@ -174,58 +187,42 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private List<RecRecyclerViewItem> getCitiesList() {
-        List<RecRecyclerViewItem> citydata = new ArrayList<>(); // Your data list
-        citydata.add(new RecRecyclerViewItem("Dubai", R.drawable.burj_khalifa, DUBAI));
-        citydata.add(new RecRecyclerViewItem("Dubaix", R.drawable.populard, DUBAI));
-        citydata.add(new RecRecyclerViewItem("Dubaiy", R.drawable.burj_khalifa, DUBAI));
+    private List<RecommendLocations> getCitiesList() {
+        List<RecommendLocations> citydata = new ArrayList<>(); // Your data list
+        citydata.add(new RecommendLocations("Dubai", R.drawable.burj_khalifa, DUBAI, false));
+        citydata.add(new RecommendLocations("Dubaix", R.drawable.populard, DUBAI, false));
+        citydata.add(new RecommendLocations("Dubaiy", R.drawable.burj_khalifa, DUBAI, false));
 
-        citydata.add(new RecRecyclerViewItem("Abudhabi", R.drawable.populard, ABUDABI));
-        citydata.add(new RecRecyclerViewItem("ABUDHABI", R.drawable.burj_khalifa, ABUDABI));
-        citydata.add(new RecRecyclerViewItem("SHARJAH", R.drawable.burj_khalifa, SHARJAH));
-        citydata.add(new RecRecyclerViewItem("Sharjah", R.drawable.populard, SHARJAH));
+        citydata.add(new RecommendLocations("Abudhabi", R.drawable.populard, ABUDABI, true));
+        citydata.add(new RecommendLocations("ABUDHABI", R.drawable.burj_khalifa, ABUDABI, true));
+        citydata.add(new RecommendLocations("SHARJAH", R.drawable.burj_khalifa, SHARJAH, true));
+        citydata.add(new RecommendLocations("Sharjah", R.drawable.populard, SHARJAH, true));
 
-        citydata.add(new RecRecyclerViewItem("Ajman", R.drawable.populard, AJMAN));
-        citydata.add(new RecRecyclerViewItem("AJMAN", R.drawable.burj_khalifa, AJMAN));
+        citydata.add(new RecommendLocations("Ajman", R.drawable.populard, AJMAN, false));
+        citydata.add(new RecommendLocations("AJMAN", R.drawable.burj_khalifa, AJMAN, false));
 
-        citydata.add(new RecRecyclerViewItem("Ras al Khaima", R.drawable.populard, RASUL_ALHAIMA));
-        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, RASUL_ALHAIMA));
+        citydata.add(new RecommendLocations("Ras al Khaima", R.drawable.populard, RASUL_ALHAIMA, false));
+        citydata.add(new RecommendLocations("Burj ul Khalifa", R.drawable.burj_khalifa, RASUL_ALHAIMA, false));
 
-        citydata.add(new RecRecyclerViewItem("Burj ul Arab", R.drawable.populard, FAJOURIA));
-        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, FAJOURIA));
-        citydata.add(new RecRecyclerViewItem("SHARJAH", R.drawable.burj_khalifa, SHARJAH));
-        citydata.add(new RecRecyclerViewItem("Sharjah", R.drawable.populard, SHARJAH)); citydata.add(new RecRecyclerViewItem("SHARJAH", R.drawable.burj_khalifa, SHARJAH));
-        citydata.add(new RecRecyclerViewItem("Sharjah", R.drawable.populard, SHARJAH));
+        citydata.add(new RecommendLocations("Burj ul Arab", R.drawable.populard, FAJOURIA, false));
+        citydata.add(new RecommendLocations("SHARJAH", R.drawable.burj_khalifa, SHARJAH, false));
+        citydata.add(new RecommendLocations("Sharjah", R.drawable.populard, SHARJAH, false));
+        citydata.add(new RecommendLocations("SHARJAH", R.drawable.burj_khalifa, SHARJAH, false));
+        citydata.add(new RecommendLocations("Sharjah", R.drawable.populard, SHARJAH, false));
 
-        citydata.add(new RecRecyclerViewItem("Ajman", R.drawable.populard, AJMAN));
-        citydata.add(new RecRecyclerViewItem("AJMAN", R.drawable.burj_khalifa, AJMAN));
-
-        citydata.add(new RecRecyclerViewItem("Ras al Khaima", R.drawable.populard, RASUL_ALHAIMA));
-        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, RASUL_ALHAIMA));
-
-        citydata.add(new RecRecyclerViewItem("Burj ul Arab", R.drawable.populard, FAJOURIA));
-        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, FAJOURIA));
-
-        citydata.add(new RecRecyclerViewItem("Ajman", R.drawable.populard, AJMAN));
-        citydata.add(new RecRecyclerViewItem("AJMAN", R.drawable.burj_khalifa, AJMAN));
-
-        citydata.add(new RecRecyclerViewItem("Ras al Khaima", R.drawable.populard, RASUL_ALHAIMA));
-        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, RASUL_ALHAIMA));
-
-        citydata.add(new RecRecyclerViewItem("Burj ul Arab", R.drawable.populard, FAJOURIA));
-        citydata.add(new RecRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa, FAJOURIA));
         return citydata;
     }
 
-    private List<RecRecyclerViewItem> filterCity(int city) {
-        List<RecRecyclerViewItem> cities = getCitiesList();
-        List<RecRecyclerViewItem> citydata = new ArrayList<>(); // Your data list
+    private List<RecommendLocations> filterCity(int city) {
+        List<RecommendLocations> cities = getCitiesList();
+        List<RecommendLocations> citydata = new ArrayList<>(); // Your data list
 
-        for (RecRecyclerViewItem item : cities)
+        for (RecommendLocations item : cities)
             if (item.getCityCode() == city) citydata.add(item);
 
         return citydata;
     }
+
 
 }
 

@@ -15,9 +15,9 @@ import java.util.List;
 
 public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesViewHolder> {
     private final Context context;
-    private List<RecRecyclerViewItem> statesdata;
+    private List<RecommendLocations> statesdata;
 
-    public StatesAdapter(List<RecRecyclerViewItem> statesdata, Context context) {
+    public StatesAdapter(List<RecommendLocations> statesdata, Context context) {
         this.statesdata = statesdata;
         this.context = context;
 
@@ -32,7 +32,7 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
     @Override
     public void onBindViewHolder(@NonNull StatesViewHolder holder, int position) {
-        RecRecyclerViewItem clickedItem = statesdata.get(position);
+        RecommendLocations clickedItem = statesdata.get(position);
 
         holder.cityname.setText(clickedItem.getRecCityName());
         holder.cityimage.setImageResource(clickedItem.getRecCityImage());

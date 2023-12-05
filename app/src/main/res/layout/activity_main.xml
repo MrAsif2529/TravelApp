@@ -99,52 +99,73 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSearch" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="413dp"
-        android:layout_height="52dp"
-        android:elevation="100dp"
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="2dp"
         android:background="@drawable/curve_shap"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
+    <ImageView
+        android:id="@+id/favrite"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginStart="30dp"
+        android:layout_weight="1"
+        android:elevation="2dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/fav_empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/home"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-        <ImageView
-            android:id="@+id/favrite"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            android:src="@drawable/fav_empty" />
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_weight="1"
+        android:elevation="2dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/home_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/favrite"
+        app:layout_constraintEnd_toStartOf="@+id/profile"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/favrite"
+        app:layout_constraintTop_toTopOf="@+id/favrite" />
 
-        <ImageView
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            android:src="@drawable/home_empty" />
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="30dp"
+        android:layout_weight="1"
+        android:elevation="2dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/profile_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/home"
+        app:layout_constraintTop_toTopOf="@+id/home" />
 
-        <ImageView
-            android:id="@+id/profile"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            android:src="@drawable/profile_empty" />
-
-    </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.92" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

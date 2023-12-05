@@ -1,14 +1,20 @@
 package com.example.travelapp;
 
-import androidx.fragment.app.Fragment;
+import static com.example.travelapp.Constants.ABUDABI;
+import static com.example.travelapp.Constants.DUBAI;
+import static com.example.travelapp.Constants.SHARJAH;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FavouritesFragment extends Fragment {
+import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
+public class FavouritesFragment extends Fragment {
 
 
     @Override
@@ -18,4 +24,19 @@ public class FavouritesFragment extends Fragment {
 
         return view;
     }
+
+    private List<RecommendLocations> getCitiesList() {
+        List<RecommendLocations> citydata = new ArrayList<>(); // Your data list
+        citydata.add(new RecommendLocations("Dubai", R.drawable.burj_khalifa, DUBAI, true));
+        citydata.add(new RecommendLocations("Dubaix", R.drawable.populard, DUBAI, true));
+        citydata.add(new RecommendLocations("Dubaiy", R.drawable.burj_khalifa, DUBAI, true));
+
+        citydata.add(new RecommendLocations("Abudhabi", R.drawable.populard, ABUDABI, true));
+        citydata.add(new RecommendLocations("ABUDHABI", R.drawable.burj_khalifa, ABUDABI, true));
+        citydata.add(new RecommendLocations("SHARJAH", R.drawable.burj_khalifa, SHARJAH, true));
+        citydata.add(new RecommendLocations("Sharjah", R.drawable.populard, SHARJAH, true));
+
+        return citydata;
+    }
+
 }

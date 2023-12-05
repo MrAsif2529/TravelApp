@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class SeeAllFragment extends Fragment {
-    private List<RecRecyclerViewItem> itemsList;
+    private List<RecommendLocations> itemsList;
     private RecyclerView stateRecyclerView;
 
-    public List<RecRecyclerViewItem> getItemsList() {
+    public List<RecommendLocations> getItemsList() {
         return itemsList;
     }
 
-    public void setItemsList(List<RecRecyclerViewItem> itemsList) {
+    public void setItemsList(List<RecommendLocations> itemsList) {
         this.itemsList = itemsList;
     }
 

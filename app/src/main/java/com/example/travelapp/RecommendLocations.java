@@ -1,18 +1,27 @@
 package com.example.travelapp;
 
-public class RecRecyclerViewItem {
+public class RecommendLocations {
 
 
     private String recCityName;
     private int cityCode;
     private String recRating;
     private int recCityImage;
+    private boolean fav;
 
-    public RecRecyclerViewItem(String recCityName, int recCityImage, int cityCode) {
+    public RecommendLocations(String recCityName, int recCityImage, int cityCode, boolean fav) {
         this.recCityName = recCityName;
         this.recCityImage = recCityImage;
         this.cityCode = cityCode;
+        this.fav = fav;
+    }
 
+    public void setFav(boolean fav) {
+        this.fav = fav;
+    }
+
+    public boolean isFav() {
+        return fav;
     }
 
     public String getRecCityName() {
