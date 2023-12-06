@@ -7,7 +7,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="376dp"
+        android:layout_width="380dp"
         android:layout_height="334dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_style"
@@ -18,8 +18,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/imageView3"
-        android:layout_width="371dp"
-        android:layout_height="338dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
@@ -28,8 +28,8 @@
 
         <ImageView
             android:id="@+id/statecityImage"
-            android:layout_width="474dp"
-            android:layout_height="wrap_content"
+            android:layout_width="380dp"
+            android:layout_height="334dp"
             android:background="@drawable/shape"
             android:scaleType="fitXY"
             android:src="@drawable/login_img" />
@@ -143,8 +143,8 @@
         android:layout_marginTop="64dp"
         android:background="@drawable/curve_shap"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/statecityDetails"
+        app:layout_constraintStart_toStartOf="@+id/statecityDetails"
         app:layout_constraintTop_toBottomOf="@+id/statecityDetails">
 
         <ImageView

@@ -2,6 +2,9 @@ package com.example.travelapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +35,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        EditText editTextSearch = findViewById(R.id.editTextSearch);
+
+        editTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                String searchText = s.toString();
+                // Implement your search logic here
+
+                // For example, if you have a list of destinations to filter
+                List<String> filteredDestinations = new ArrayList<>();
+                for (String destination : filteredDestinations ) {
+                    if (destination.toLowerCase().contains(searchText.toLowerCase())) {
+                        filteredDestinations.add(destination);
+                    }
+                }
+
+                // Update your UI or perform actions based on the filtered results
+                // For instance, display the filtered results in a RecyclerView or ListView
+                // adapter.updateData(filteredDestinations);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not needed for search functionality
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Not needed for search functionality
+            }
+        });
 
         firestore= FirebaseFirestore.getInstance();
 
@@ -99,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
             clickedImageView.setImageResource(R.drawable.profile_fill);
         }
     }
+
+
 
 
 

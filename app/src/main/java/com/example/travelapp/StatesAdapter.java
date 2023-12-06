@@ -37,6 +37,7 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
         holder.cityname.setText(clickedItem.getRecCityName());
         holder.cityimage.setImageResource(clickedItem.getRecCityImage());
 
+
         holder.itemView.setOnClickListener(view -> {
             // Retrieve the clicked item data
 
@@ -44,7 +45,7 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
             Intent intent = new Intent(context, PlaceViewActivity.class);
             intent.putExtra("cityname", clickedItem.getRecCityName());
             intent.putExtra("cityimage", clickedItem.getRecCityImage());
-//                intent.putExtra("citydetails", clickedItem.getCityDetails());// Example data passing
+//         intent.putExtra("citydetails", clickedItem.getCityDetails());// Example data passing
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         });
@@ -58,12 +59,13 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
     public static class StatesViewHolder extends RecyclerView.ViewHolder {
         ImageView cityimage;
-        private TextView cityname;
+        private TextView cityname, cityDetails;
 
         public StatesViewHolder(@NonNull View itemView) {
             super(itemView);
             cityname = itemView.findViewById(R.id.cityname);
             cityimage = itemView.findViewById(R.id.cityimage);
+//            cityDetails = itemView.findViewById(R.id.statecityDetails);
         }
     }
 }
