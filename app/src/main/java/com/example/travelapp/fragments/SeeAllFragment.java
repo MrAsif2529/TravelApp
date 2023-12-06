@@ -1,4 +1,4 @@
-package com.example.travelapp;
+package com.example.travelapp.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.travelapp.R;
+import com.example.travelapp.model.RecommendLocations;
+import com.example.travelapp.adapters.StatesAdapter;
 
 import java.util.List;
 

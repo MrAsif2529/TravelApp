@@ -1,8 +1,8 @@
-package com.example.travelapp;
+package com.example.travelapp.fragments;
 
-import static com.example.travelapp.Constants.ABUDABI;
-import static com.example.travelapp.Constants.DUBAI;
-import static com.example.travelapp.Constants.SHARJAH;
+import static com.example.travelapp.utils.Constants.ABUDABI;
+import static com.example.travelapp.utils.Constants.DUBAI;
+import static com.example.travelapp.utils.Constants.SHARJAH;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.travelapp.R;
+import com.example.travelapp.model.RecommendLocations;
 
 import java.util.ArrayList;
 import java.util.List;

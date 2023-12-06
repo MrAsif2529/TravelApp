@@ -1,4 +1,4 @@
-package com.example.travelapp;
+package com.example.travelapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.travelapp.R;
 
 public class StartingActivity extends AppCompatActivity {
     private TextView textView;

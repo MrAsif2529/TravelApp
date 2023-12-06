@@ -1,4 +1,4 @@
-package com.example.travelapp;
+package com.example.travelapp.model;
 
 import android.app.Activity;
 

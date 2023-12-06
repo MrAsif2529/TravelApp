@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    tools:context=".PopularRecyclerViewItem">
+    tools:context=".model.PopularRecyclerViewItem">
 
     <View
         android:id="@+id/view"

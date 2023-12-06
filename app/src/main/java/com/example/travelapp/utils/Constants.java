@@ -1,4 +1,4 @@
-package com.example.travelapp;
+package com.example.travelapp.utils;
 
 public class Constants {
     public static int DUBAI = 1;

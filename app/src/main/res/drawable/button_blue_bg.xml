@@ -4,4 +4,7 @@
     <!-- you can use any color you want I used here gray color-->
     <solid android:color="#035FFF" />
     <corners android:radius="10dp" />
+    <padding
+        android:left="30dp"
+        android:right="30dp" />
 </shape>

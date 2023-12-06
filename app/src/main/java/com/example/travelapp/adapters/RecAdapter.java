@@ -1,4 +1,4 @@
-package com.example.travelapp;
+package com.example.travelapp.adapters;
 
 import static android.view.LayoutInflater.from;
 import static com.example.travelapp.R.layout.custom_recommended_items;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.travelapp.R;
+import com.example.travelapp.model.RecommendLocations;
 
 import java.util.ArrayList;
 import java.util.List;

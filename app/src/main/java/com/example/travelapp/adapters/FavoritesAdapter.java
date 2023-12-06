@@ -1,4 +1,4 @@
-package com.example.travelapp;
+package com.example.travelapp.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.travelapp.model.FavoritesRecyclerViewItem;
+import com.example.travelapp.R;
 
 import java.util.List;
 

@@ -1,10 +1,12 @@
-package com.example.travelapp;
+package com.example.travelapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.example.travelapp.R;
 
 public class Search_Activity extends AppCompatActivity {
 

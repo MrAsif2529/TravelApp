@@ -1,4 +1,4 @@
-package com.example.travelapp;
+package com.example.travelapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.travelapp.R;
+import com.example.travelapp.model.RecommendLocations;
+import com.example.travelapp.activities.PlaceViewActivity;
 
 import java.util.List;
 

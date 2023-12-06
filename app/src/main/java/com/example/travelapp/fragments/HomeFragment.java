@@ -1,12 +1,12 @@
-package com.example.travelapp;
+package com.example.travelapp.fragments;
 
 import static androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL;
-import static com.example.travelapp.Constants.ABUDABI;
-import static com.example.travelapp.Constants.AJMAN;
-import static com.example.travelapp.Constants.DUBAI;
-import static com.example.travelapp.Constants.FAJOURIA;
-import static com.example.travelapp.Constants.RASUL_ALHAIMA;
-import static com.example.travelapp.Constants.SHARJAH;
+import static com.example.travelapp.utils.Constants.ABUDABI;
+import static com.example.travelapp.utils.Constants.AJMAN;
+import static com.example.travelapp.utils.Constants.DUBAI;
+import static com.example.travelapp.utils.Constants.FAJOURIA;
+import static com.example.travelapp.utils.Constants.RASUL_ALHAIMA;
+import static com.example.travelapp.utils.Constants.SHARJAH;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +18,12 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.travelapp.model.PopularRecyclerViewItem;
+import com.example.travelapp.adapters.PopulorAdapter;
+import com.example.travelapp.R;
+import com.example.travelapp.adapters.RecAdapter;
+import com.example.travelapp.model.RecommendLocations;
 
 import java.util.ArrayList;
 import java.util.List;
