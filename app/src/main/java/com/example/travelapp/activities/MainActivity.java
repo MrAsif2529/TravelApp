@@ -70,24 +70,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        firestore= FirebaseFirestore.getInstance();
-
-        Map<String,Object> users = new HashMap<>();
-        users.put("firstName","EASY");
-        users.put("lastName","TUTO");
-        users.put("description","Subscribe");
-
-        firestore.collection("users").add(users).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(),"Failure", Toast.LENGTH_LONG).show();
-            }
-        });
 
         home = findViewById(R.id.home);
         findViewById(R.id.home).setOnClickListener(view -> {

@@ -1,10 +1,10 @@
 package com.example.travelapp.utils;
 
 public class Constants {
-    public static int DUBAI = 1;
-    public static int SHARJAH = 3;
-    public static int ABUDABI = 2;
-    public static int RASUL_ALHAIMA = 5;
-    public static int FAJOURIA = 6;
-    public static int AJMAN = 4;
+    public static String DUBAI = "dubai";
+    public static String SHARJAH = "sharjah";
+    public static String ABUDABI = "abudabi";
+    public static String RASUL_ALHAIMA = "rasul-khaima";
+    public static String FAJOURIA = "fajouria";
+    public static String AJMAN = "ajman";
 }

@@ -10,20 +10,20 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelapp.R;
-import com.example.travelapp.model.RecommendLocations;
+import com.example.travelapp.model.Places;
 import com.example.travelapp.adapters.StatesAdapter;
 
 import java.util.List;
 
 public class SeeAllFragment extends Fragment {
-    private List<RecommendLocations> itemsList;
+    private List<Places> itemsList;
     private RecyclerView stateRecyclerView;
 
-    public List<RecommendLocations> getItemsList() {
+    public List<Places> getItemsList() {
         return itemsList;
     }
 
-    public void setItemsList(List<RecommendLocations> itemsList) {
+    public void setItemsList(List<Places> itemsList) {
         this.itemsList = itemsList;
     }
 

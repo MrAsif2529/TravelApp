@@ -1,7 +1,5 @@
 package com.example.travelapp.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.travelapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -68,6 +65,7 @@ public class SignInActivity extends AppCompatActivity {
 
             }
         });
+
         signUpBtn.setOnClickListener(v -> {
             String email = emailText.getText().toString();
             String password = passwordText.getText().toString();
@@ -76,8 +74,7 @@ public class SignInActivity extends AppCompatActivity {
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             // Sign up success, update UI accordingly
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            // You can add more actions upon successful sign up if needed
+                            moveToMainActivity();
                         } else {
                             // If sign up fails, display a message to the user.
                             Toast.makeText(this, "Authentication failed.",

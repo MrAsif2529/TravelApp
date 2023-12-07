@@ -9,14 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.travelapp.model.Places;
 import com.example.travelapp.model.PopularRecyclerViewItem;
 import com.example.travelapp.R;
 
 import java.util.List;
 
 public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularViewHolder> {
-    private List<PopularRecyclerViewItem> data;
-    public PopulorAdapter(List<PopularRecyclerViewItem> data) {
+    private List<Places> data;
+    public PopulorAdapter(List<Places> data) {
         this.data= data;
 
     }
@@ -30,9 +31,9 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
 
     @Override
     public void onBindViewHolder(@NonNull PopularViewHolder holder, int position) {
-        PopularRecyclerViewItem popularRecyclerViewItem = data.get(position);
-        holder.popularcityname.setText(popularRecyclerViewItem.getPopularCityName());
-        holder.cityimage.setImageResource(popularRecyclerViewItem.getCityImage());
+        Places popularRecyclerViewItem = data.get(position);
+        holder.popularcityname.setText(popularRecyclerViewItem.getCityName());
+//        holder.cityimage.setImageResource(popularRecyclerViewItem.getImage());
     }
 
     @Override

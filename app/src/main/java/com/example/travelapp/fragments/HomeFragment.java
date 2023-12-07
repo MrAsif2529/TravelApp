@@ -19,11 +19,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.travelapp.model.PopularRecyclerViewItem;
-import com.example.travelapp.adapters.PopulorAdapter;
 import com.example.travelapp.R;
+import com.example.travelapp.adapters.PopulorAdapter;
 import com.example.travelapp.adapters.RecAdapter;
-import com.example.travelapp.model.RecommendLocations;
+import com.example.travelapp.database.FirebaseHelper;
+import com.example.travelapp.model.Places;
+import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +36,13 @@ public class HomeFragment extends Fragment {
     private RecyclerView recRecyclerView;
 
     private RecAdapter mRecAdapter;
-    private int selectedList = ABUDABI;
+    private String selectedList = ABUDABI;
 
     private List<String> favList = new ArrayList<>();
     private static final String TAG = "HomeFragment";
+
+    private List<Places> mPlaces = new ArrayList<>();
+    private FirebaseHelper mFirebaseHelper = new FirebaseHelper();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,10 +52,9 @@ public class HomeFragment extends Fragment {
         TextView seeAll = view.findViewById(R.id.seeAll);
 
         seeAll.setOnClickListener(v -> {
-            SeeAllFragment fragment = new SeeAllFragment();
+         /*   SeeAllFragment fragment = new SeeAllFragment();
             fragment.setItemsList(filterCity(selectedList));
-
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();*/
         });
 
         recRecyclerView = view.findViewById(R.id.recRecyclerView);
@@ -59,15 +62,15 @@ public class HomeFragment extends Fragment {
         recRecyclerView.setLayoutManager(layoutManager);
 
 
-        mRecAdapter = new RecAdapter(filterCity(DUBAI), new RecAdapter.IRecommendListener() {
+        mRecAdapter = new RecAdapter(mPlaces, new RecAdapter.IRecommendListener() {
             @Override
-            public void onClick(RecommendLocations item) {
+            public void onClick(Places item) {
                 Log.d(TAG, "open details view activity");
             }
 
             @Override
-            public void onFave(RecommendLocations item) {
-                favList.add(item.getRecCityName());
+            public void onFave(Places item) {
+                favList.add(item.getCityName());
                 Log.d(TAG, "onFave selected");
             }
         }, favList);
@@ -78,21 +81,21 @@ public class HomeFragment extends Fragment {
         dubai.setOnClickListener(v -> {
             changeBackground(dubai);
             selectedList = DUBAI;
-            mRecAdapter.refresh(filterCity(DUBAI));
+            fetchPlace(DUBAI);
         });
 
         abudhabi = view.findViewById(R.id.abudhabi);
         abudhabi.setOnClickListener(view1 -> {
             selectedList = ABUDABI;
             changeBackground(abudhabi);
-            mRecAdapter.refresh(filterCity(ABUDABI));
+            fetchPlace(ABUDABI);
         });
 
         sharjah = view.findViewById(R.id.sharjah);
         sharjah.setOnClickListener(view12 -> {
             selectedList = SHARJAH;
             changeBackground(sharjah);
-            mRecAdapter.refresh(filterCity(SHARJAH));
+            fetchPlace(SHARJAH);
 
         });
 
@@ -100,7 +103,7 @@ public class HomeFragment extends Fragment {
         ajman.setOnClickListener(view13 -> {
             selectedList = AJMAN;
             changeBackground(ajman);
-            mRecAdapter.refresh(filterCity(AJMAN));
+            fetchPlace(AJMAN);
 
         });
 
@@ -108,7 +111,7 @@ public class HomeFragment extends Fragment {
         khaima.setOnClickListener(view14 -> {
             selectedList = RASUL_ALHAIMA;
             changeBackground(khaima);
-            mRecAdapter.refresh(filterCity(RASUL_ALHAIMA));
+            fetchPlace(RASUL_ALHAIMA);
 
         });
 
@@ -116,7 +119,7 @@ public class HomeFragment extends Fragment {
         fujariah.setOnClickListener(view15 -> {
             selectedList = FAJOURIA;
             changeBackground(fujariah);
-            mRecAdapter.refresh(filterCity(FAJOURIA));
+            fetchPlace(FAJOURIA);
 
         });
 
@@ -124,10 +127,32 @@ public class HomeFragment extends Fragment {
         popularRecyclerView = view.findViewById(R.id.popularRecyclerView);
         popularRecyclerView.setLayoutManager(new LinearLayoutManager(inflater.getContext(), HORIZONTAL, false));
 
-        PopulorAdapter adapter = new PopulorAdapter(dubai());
+        PopulorAdapter adapter = new PopulorAdapter(mPlaces);
         popularRecyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fetchPlace("dubai");
+    }
+
+
+    private void fetchPlace(String place) {
+        mFirebaseHelper.readChild(place, new FirebaseHelper.IFirebaseHelper() {
+            @Override
+            public void onSuccess(DataSnapshot snapshot) {
+                Log.d(TAG, "onSuccess: " + snapshot.toString());
+                List<Places> places = filterCity(snapshot, place);
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.w(TAG, "onError: " + message);
+            }
+        });
     }
 
     private void changeBackground(TextView textView) {
@@ -149,84 +174,17 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private List<PopularRecyclerViewItem> dubai() {
-        List<PopularRecyclerViewItem> data = new ArrayList<>(); // Your data list
-        data.add(new PopularRecyclerViewItem("Burj ul Khalifa", R.drawable.burj_khalifa));
-        data.add(new PopularRecyclerViewItem("Burj ul Arab", R.drawable.populard));
-        return data;
-    }
+    private List<Places> filterCity(DataSnapshot dataSnapshot, String place) {
+        List<Places> places = new ArrayList<>();
 
-    private List<PopularRecyclerViewItem> abudhabi() {
-        List<PopularRecyclerViewItem> data = new ArrayList<>(); // Your data list
-        data.add(new PopularRecyclerViewItem("abu dhabi", R.drawable.burj_khalifa));
-        data.add(new PopularRecyclerViewItem("ab dhabi2", R.drawable.populard));
-        return data;
-    }
+        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+            if (snapshot.getKey() == null) continue;
 
-    private List<PopularRecyclerViewItem> sharjah() {
-        List<PopularRecyclerViewItem> data = new ArrayList<>(); // Your data list
-        data.add(new PopularRecyclerViewItem("sharjah", R.drawable.burj_khalifa));
-        data.add(new PopularRecyclerViewItem("sharjah2", R.drawable.populard));
+            if (snapshot.getKey().equals(place))
+                Log.d(TAG, "filterCity found " + snapshot.getKey());
+        }
 
-        return data;
-    }
-
-    private List<PopularRecyclerViewItem> ajman() {
-        List<PopularRecyclerViewItem> data = new ArrayList<>(); // Your data list
-        data.add(new PopularRecyclerViewItem("ajman", R.drawable.burj_khalifa));
-        data.add(new PopularRecyclerViewItem("ajman2", R.drawable.populard));
-        return data;
-    }
-
-    private List<PopularRecyclerViewItem> rasalkhaima() {
-        List<PopularRecyclerViewItem> data = new ArrayList<>(); // Your data list
-        data.add(new PopularRecyclerViewItem("Ras Al Khaimah", R.drawable.burj_khalifa));
-        data.add(new PopularRecyclerViewItem("RAS AL Khaimah", R.drawable.populard));
-        return data;
-    }
-
-    private List<PopularRecyclerViewItem> fujariah() {
-        List<PopularRecyclerViewItem> data = new ArrayList<>(); // Your data list
-        data.add(new PopularRecyclerViewItem("fujariah", R.drawable.burj_khalifa));
-        data.add(new PopularRecyclerViewItem("Fujariah", R.drawable.populard));
-        return data;
-    }
-
-
-    private List<RecommendLocations> getCitiesList() {
-        List<RecommendLocations> citydata = new ArrayList<>(); // Your data list
-        citydata.add(new RecommendLocations("Dubai", R.drawable.burj_khalifa, DUBAI, false));
-        citydata.add(new RecommendLocations("Dubaix", R.drawable.populard, DUBAI, false));
-        citydata.add(new RecommendLocations("Dubaiy", R.drawable.burj_khalifa, DUBAI, false));
-
-        citydata.add(new RecommendLocations("Abudhabi", R.drawable.populard, ABUDABI, true));
-        citydata.add(new RecommendLocations("ABUDHABI", R.drawable.burj_khalifa, ABUDABI, true));
-        citydata.add(new RecommendLocations("SHARJAH", R.drawable.burj_khalifa, SHARJAH, true));
-        citydata.add(new RecommendLocations("Sharjah", R.drawable.populard, SHARJAH, true));
-
-        citydata.add(new RecommendLocations("Ajman", R.drawable.populard, AJMAN, false));
-        citydata.add(new RecommendLocations("AJMAN", R.drawable.burj_khalifa, AJMAN, false));
-
-        citydata.add(new RecommendLocations("Ras al Khaima", R.drawable.populard, RASUL_ALHAIMA, false));
-        citydata.add(new RecommendLocations("Burj ul Khalifa", R.drawable.burj_khalifa, RASUL_ALHAIMA, false));
-
-        citydata.add(new RecommendLocations("Burj ul Arab", R.drawable.populard, FAJOURIA, false));
-        citydata.add(new RecommendLocations("SHARJAH", R.drawable.burj_khalifa, SHARJAH, false));
-        citydata.add(new RecommendLocations("Sharjah", R.drawable.populard, SHARJAH, false));
-        citydata.add(new RecommendLocations("SHARJAH", R.drawable.burj_khalifa, SHARJAH, false));
-        citydata.add(new RecommendLocations("Sharjah", R.drawable.populard, SHARJAH, false));
-
-        return citydata;
-    }
-
-    private List<RecommendLocations> filterCity(int city) {
-        List<RecommendLocations> cities = getCitiesList();
-        List<RecommendLocations> citydata = new ArrayList<>(); // Your data list
-
-        for (RecommendLocations item : cities)
-            if (item.getCityCode() == city) citydata.add(item);
-
-        return citydata;
+        return new ArrayList<>();
     }
 
 

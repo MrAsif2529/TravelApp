@@ -12,16 +12,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelapp.R;
-import com.example.travelapp.model.RecommendLocations;
+import com.example.travelapp.model.Places;
 import com.example.travelapp.activities.PlaceViewActivity;
 
 import java.util.List;
 
 public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesViewHolder> {
     private final Context context;
-    private List<RecommendLocations> statesdata;
+    private List<Places> statesdata;
 
-    public StatesAdapter(List<RecommendLocations> statesdata, Context context) {
+    public StatesAdapter(List<Places> statesdata, Context context) {
         this.statesdata = statesdata;
         this.context = context;
 
@@ -36,10 +36,10 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
     @Override
     public void onBindViewHolder(@NonNull StatesViewHolder holder, int position) {
-        RecommendLocations clickedItem = statesdata.get(position);
+        Places clickedItem = statesdata.get(position);
 
-        holder.cityname.setText(clickedItem.getRecCityName());
-        holder.cityimage.setImageResource(clickedItem.getRecCityImage());
+        holder.cityname.setText(clickedItem.getCityName());
+//        holder.cityimage.setImageResource(clickedItem.getImage());
 
 
         holder.itemView.setOnClickListener(view -> {
@@ -47,8 +47,8 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
             // Start the new activity here, passing data if needed
             Intent intent = new Intent(context, PlaceViewActivity.class);
-            intent.putExtra("cityname", clickedItem.getRecCityName());
-            intent.putExtra("cityimage", clickedItem.getRecCityImage());
+            intent.putExtra("cityname", clickedItem.getCityName());
+            intent.putExtra("cityimage", clickedItem.getImage());
 //         intent.putExtra("citydetails", clickedItem.getCityDetails());// Example data passing
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);

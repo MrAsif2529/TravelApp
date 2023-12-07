@@ -1,10 +1,6 @@
 package com.example.travelapp.model;
 
-import android.app.Activity;
-
 public class PopularRecyclerViewItem  {
-
-
     private String popularcityname;
     private String cityrating;
     private  int cityimage;

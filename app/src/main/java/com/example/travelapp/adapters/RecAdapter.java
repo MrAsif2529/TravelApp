@@ -12,17 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelapp.R;
-import com.example.travelapp.model.RecommendLocations;
+import com.example.travelapp.model.Places;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecAdapter extends RecyclerView.Adapter<RecAdapter.RecViewHolder> {
-    private List<RecommendLocations> mLocationsList;
+    private List<Places> mLocationsList;
     private IRecommendListener mCallBack;
     private List<String> favList = new ArrayList<>();
 
-    public RecAdapter(List<RecommendLocations> recommendLocations, IRecommendListener callBack,
+    public RecAdapter(List<Places> recommendLocations, IRecommendListener callBack,
                       List<String> favList) {
         this.mLocationsList = recommendLocations;
         this.mCallBack = callBack;
@@ -38,13 +38,13 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.RecViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecViewHolder holder, int position) {
-        RecommendLocations item = mLocationsList.get(position);
-        holder.recCityName.setText(item.getRecCityName());
+        Places item = mLocationsList.get(position);
+        holder.recCityName.setText(item.getCityName());
 
-        holder.recCityImage.setImageResource(item.getRecCityImage());
+//        holder.recCityImage.setImageResource(item.getImage());
         holder.favIcon.setOnClickListener(view -> {
-            if (favList.contains(item.getRecCityName())) favList.remove(item.getRecCityName());
-            else favList.remove(item.getRecCityName());
+            if (favList.contains(item.getCityName())) favList.remove(item.getCityName());
+            else favList.remove(item.getCityName());
 //            mCallBack.onFave(item)
         });
 
@@ -71,15 +71,15 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.RecViewHolder> {
         }
     }
 
-    public void refresh(List<RecommendLocations> list) {
+    public void refresh(List<Places> list) {
         mLocationsList.clear();
         this.mLocationsList = list;
         notifyDataSetChanged();
     }
 
     public interface IRecommendListener {
-        void onClick(RecommendLocations item);
+        void onClick(Places item);
 
-        void onFave(RecommendLocations item);
+        void onFave(Places item);
     }
 }
