@@ -27,15 +27,43 @@
           }
         }
       }
+    },
+    "sharjah": {
+      "012": {
+        "description": "The tour combines several activities like Camel Riding, Dune Bashing, Dance Shows, Quad Biking, and Dinner; The Sharjah safari timings are usually 3:00 PM to 9:00 PM. The dress code is Modest, and comfortable walking shoes are recommended.",
+        "image": "https://www.cheapdesertsafaridubai.com/wp-content/uploads/2019/09/eveninh.jpg",
+        "name": "Desert safari sharjah",
+        "ratings": {
+          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
+            "rating": 4.5
+          },
+          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
+            "rating": 3.4
+          }
+        }
+      },
+      "021": {
+        "description": "Sharjah Aquarium features 20 tanks that recreate different local aquatic environments, from coral reefs and rock pools to lagoons and mangroves. An indoor walkway allows up-close viewing of the marine animals in these habitats.\n\nFor a family experience, try timing your visit with a scheduled fish feeding time or talk. Children will be delighted to learn more about the sea creatures and play on the interactive displays. The aquarium should be on the top of any list of things to with kids in Sharjah, especially for children’s edutainment. Families in Sharjah often bring kids here to learn about local marine life.\n\nIf you’re planning the aquarium as one of your places to visit in Sharjah at night, make sure to catch the sunset at the beautiful Al Khan beach first. The views here are as beautiful but distinctively different from the Sharjah Corniche. Then, take a quick tour of the aquarium before it closes in the late evening. Your ticket includes entry to the Sharjah Maritime Museum next door, where you can learn about the coast in more detail than any other Sharjah museum. After visiting these destinations, you will have checked off three popular Sharjah tourist places.",
+        "image": "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/200/2020/02/01071649/Slide1.jpg",
+        "name": "Sharjah Aquarium",
+        "ratings": {
+          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
+            "rating": 3.3
+          },
+          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
+            "rating": 4.4
+          }
+        }
+      }
     }
   },
   "favorites": {
     "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
-      "Jmlhr2PHVVeoPMC99NaMwULh8qp143554": {
-        "place_id": "01"
-      },
       "Jmlhr2PHVVeoPMC99NaMwULh8qp1324321": {
         "place_id": "02"
+      },
+      "Jmlhr2PHVVeoPMC99NaMwULh8qp143554": {
+        "place_id": "01"
       }
     }
   }

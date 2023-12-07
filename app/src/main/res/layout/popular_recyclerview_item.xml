@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    tools:context=".model.PopularRecyclerViewItem">
+    android:layout_margin="5dp">
 
     <View
         android:id="@+id/view"
@@ -66,10 +65,11 @@
             android:textColor="@color/White"
             android:textColorHint="@color/White"
             android:textSize="10sp" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_favorite_24"
+            android:src="@drawable/baseline_gray"
             android:layout_marginTop="210dp"
             android:background="@drawable/curve_shap"
             android:layout_marginStart="130dp"/>

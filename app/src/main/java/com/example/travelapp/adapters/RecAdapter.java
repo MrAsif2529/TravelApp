@@ -65,8 +65,6 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.RecViewHolder> {
                 });
 
         holder.favIcon.setOnClickListener(view -> {
-            if (favList.contains(item.getCityName())) favList.remove(item.getCityName());
-            else favList.remove(item.getCityName());
 //            mCallBack.onFave(item)
         });
 

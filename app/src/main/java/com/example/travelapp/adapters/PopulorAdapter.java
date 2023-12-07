@@ -1,5 +1,6 @@
 package com.example.travelapp.adapters;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.travelapp.R;
+import com.example.travelapp.activities.PlaceViewActivity;
 import com.example.travelapp.model.Places;
 
 import java.util.List;
@@ -36,23 +38,29 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
 
     @Override
     public void onBindViewHolder(@NonNull PopularViewHolder holder, int position) {
-        Places popularRecyclerViewItem = data.get(position);
-        holder.popularcityname.setText(popularRecyclerViewItem.getCityName());
-        holder.mRating.setText(popularRecyclerViewItem.getRating());
+        Places item = data.get(position);
+        holder.popularcityname.setText(item.getCityName());
+        holder.mRating.setText(item.getRating());
 //        holder.cityimage.setImageResource(popularRecyclerViewItem.getImage());
-        Glide.with(holder.itemView.getContext())
-                .asBitmap()
-                .load(popularRecyclerViewItem.getImage())
-                .into(new CustomTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                        holder.cityimage.setImageBitmap(resource);
-                    }
+        Glide.with(holder.itemView.getContext()).asBitmap().load(item.getImage()).into(new CustomTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                holder.cityimage.setImageBitmap(resource);
+            }
 
-                    @Override
-                    public void onLoadCleared(@Nullable Drawable placeholder) {
-                    }
-                });
+            @Override
+            public void onLoadCleared(@Nullable Drawable placeholder) {
+            }
+        });
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(holder.itemView.getContext(), PlaceViewActivity.class);
+            intent.putExtra("name", item.getCityName());
+            intent.putExtra("description", item.getDescription());
+            intent.putExtra("image", item.getImage());
+            intent.putExtra("rating", item.getRating());
+            holder.itemView.getContext().startActivity(intent);
+        });
     }
 
     @Override

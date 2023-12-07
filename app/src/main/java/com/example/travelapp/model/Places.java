@@ -2,7 +2,9 @@ package com.example.travelapp.model;
 
 import androidx.annotation.NonNull;
 
-public class Places {
+import java.io.Serializable;
+
+public class Places implements Serializable {
     private String cityName;
     private String rating;
     private String image;
