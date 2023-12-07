@@ -35,6 +35,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView popularRecyclerView;
     private RecyclerView recRecyclerView;
 
+    private PopulorAdapter mPopularAdapter;
+
     private RecAdapter mRecAdapter;
     private String selectedList = ABUDABI;
 
@@ -127,8 +129,8 @@ public class HomeFragment extends Fragment {
         popularRecyclerView = view.findViewById(R.id.popularRecyclerView);
         popularRecyclerView.setLayoutManager(new LinearLayoutManager(inflater.getContext(), HORIZONTAL, false));
 
-        PopulorAdapter adapter = new PopulorAdapter(mPlaces);
-        popularRecyclerView.setAdapter(adapter);
+        mPopularAdapter = new PopulorAdapter(mPlaces);
+        popularRecyclerView.setAdapter(mPopularAdapter);
 
         return view;
     }
@@ -146,6 +148,9 @@ public class HomeFragment extends Fragment {
             public void onSuccess(DataSnapshot snapshot) {
                 Log.d(TAG, "onSuccess: " + snapshot.toString());
                 List<Places> places = filterCity(snapshot, place);
+                mRecAdapter.refresh(places);
+
+                mPopularAdapter.refresh(places);
             }
 
             @Override
@@ -180,11 +185,28 @@ public class HomeFragment extends Fragment {
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
             if (snapshot.getKey() == null) continue;
 
-            if (snapshot.getKey().equals(place))
-                Log.d(TAG, "filterCity found " + snapshot.getKey());
+            DataSnapshot data = dataSnapshot.child(snapshot.getKey());
+            String description = data.child("description").getValue().toString();
+            String image = data.child("image").getValue().toString();
+            String name = data.child("name").getValue().toString();
+            String rating = "0.0";
+
+            if (data.hasChild("ratings")) rating = getRatings(data.child("ratings"));
+
+            Places item = new Places(name, rating, image, false, description);
+            places.add(item);
+
         }
 
-        return new ArrayList<>();
+        return places;
+    }
+
+    private String getRatings(DataSnapshot ratings) {
+        float rating = 0.0f;
+        for (DataSnapshot snapshot : ratings.getChildren())
+            rating = rating + Float.parseFloat(ratings.child(snapshot.getKey()).child("rating").getValue().toString());
+
+        return Float.toString(rating);
     }
 
 

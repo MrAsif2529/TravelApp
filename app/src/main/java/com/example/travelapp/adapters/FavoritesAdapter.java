@@ -1,5 +1,7 @@
 package com.example.travelapp.adapters;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,17 +9,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.travelapp.model.FavoritesRecyclerViewItem;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.travelapp.R;
+import com.example.travelapp.model.Places;
 
 import java.util.List;
 
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder> {
-    private List<FavoritesRecyclerViewItem> favdata;
-    public FavoritesAdapter(List<FavoritesRecyclerViewItem> favdata) {
-        this.favdata= favdata;
+    public List<Places> favdata;
+
+    public FavoritesAdapter(List<Places> favdata) {
+        this.favdata = favdata;
 
     }
 
@@ -30,9 +37,24 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
 
     @Override
     public void onBindViewHolder(@NonNull FavoritesViewHolder holder, int position) {
-        FavoritesRecyclerViewItem favoritesRecyclerViewItem = favdata.get(position);
-        holder.favcityname.setText(favoritesRecyclerViewItem.getFavCityName());
-        holder.favcityimage.setImageResource(favoritesRecyclerViewItem.getFavCityImage());
+        Places item = favdata.get(position);
+        holder.favcityname.setText(item.getCityName());
+        holder.mRating.setText(item.getRating());
+//        holder.favcityimage.setImageResource(favoritesRecyclerViewItem.getImage());
+
+        Glide.with(holder.itemView.getContext())
+                .asBitmap()
+                .load(item.getImage())
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        holder.favcityimage.setImageBitmap(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    }
+                });
     }
 
     @Override
@@ -43,12 +65,20 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
 
     public static class FavoritesViewHolder extends RecyclerView.ViewHolder {
         private TextView favcityname;
-        ImageView favcityimage;
+        private ImageView favcityimage;
+        private TextView mRating;
 
         public FavoritesViewHolder(@NonNull View itemView) {
             super(itemView);
             favcityname = itemView.findViewById(R.id.favcityname);
             favcityimage = itemView.findViewById(R.id.favcityimage);
+            mRating = itemView.findViewById(R.id.favrating);
         }
+    }
+
+    public void refresh(List<Places> list) {
+        favdata.clear();
+        this.favdata = list;
+        notifyDataSetChanged();
     }
 }

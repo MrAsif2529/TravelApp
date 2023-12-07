@@ -1,5 +1,7 @@
 package com.example.travelapp.adapters;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,16 +9,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.travelapp.model.Places;
-import com.example.travelapp.model.PopularRecyclerViewItem;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.travelapp.R;
+import com.example.travelapp.model.Places;
 
 import java.util.List;
 
 public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularViewHolder> {
-    private List<Places> data;
+    public List<Places> data;
     public PopulorAdapter(List<Places> data) {
         this.data= data;
 
@@ -33,7 +38,21 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
     public void onBindViewHolder(@NonNull PopularViewHolder holder, int position) {
         Places popularRecyclerViewItem = data.get(position);
         holder.popularcityname.setText(popularRecyclerViewItem.getCityName());
+        holder.mRating.setText(popularRecyclerViewItem.getRating());
 //        holder.cityimage.setImageResource(popularRecyclerViewItem.getImage());
+        Glide.with(holder.itemView.getContext())
+                .asBitmap()
+                .load(popularRecyclerViewItem.getImage())
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        holder.cityimage.setImageBitmap(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    }
+                });
     }
 
     @Override
@@ -47,11 +66,20 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
         ImageView cityimage;
         ImageView favHeart;
 
+        private TextView mRating;
+
         public PopularViewHolder(@NonNull View itemView) {
             super(itemView);
             popularcityname = itemView.findViewById(R.id.popularcityname);
             cityimage = itemView.findViewById(R.id.cityimage);
             favHeart = itemView.findViewById(R.id.favHeart);
+            mRating = itemView.findViewById(R.id.textView7);
         }
+    }
+
+    public void refresh(List<Places> list) {
+        data.clear();
+        this.data = list;
+        notifyDataSetChanged();
     }
 }

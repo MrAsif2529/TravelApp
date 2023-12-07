@@ -8,11 +8,22 @@ public class Places {
     private String image;
     private boolean fav;
 
-    public Places(String cityName, String rating, String image, boolean fav) {
+    private String description;
+
+    public Places(String cityName, String rating, String image, boolean fav, String description) {
         this.cityName = cityName;
         this.rating = rating;
         this.image = image;
         this.fav = fav;
+        this.description = description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getCityName() {

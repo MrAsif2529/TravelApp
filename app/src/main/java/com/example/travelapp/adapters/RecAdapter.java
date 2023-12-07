@@ -3,14 +3,20 @@ package com.example.travelapp.adapters;
 import static android.view.LayoutInflater.from;
 import static com.example.travelapp.R.layout.custom_recommended_items;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.travelapp.R;
 import com.example.travelapp.model.Places;
 
@@ -40,8 +46,24 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.RecViewHolder> {
     public void onBindViewHolder(@NonNull RecViewHolder holder, int position) {
         Places item = mLocationsList.get(position);
         holder.recCityName.setText(item.getCityName());
+        holder.mRating.setText(item.getRating());
 
 //        holder.recCityImage.setImageResource(item.getImage());
+
+        Glide.with(holder.itemView.getContext())
+                .asBitmap()
+                .load(item.getImage())
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        holder.recCityImage.setImageBitmap(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    }
+                });
+
         holder.favIcon.setOnClickListener(view -> {
             if (favList.contains(item.getCityName())) favList.remove(item.getCityName());
             else favList.remove(item.getCityName());
@@ -58,7 +80,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.RecViewHolder> {
 
 
     public static class RecViewHolder extends RecyclerView.ViewHolder {
-        private final TextView recCityName;
+        private final TextView recCityName, mRating;
         ImageView recCityImage;
 
         private final ImageView favIcon;
@@ -68,6 +90,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.RecViewHolder> {
             recCityName = itemView.findViewById(R.id.recCityName);
             recCityImage = itemView.findViewById(R.id.recCityImage);
             favIcon = itemView.findViewById(R.id.favIcon);
+            mRating = itemView.findViewById(R.id.recRating);
         }
     }
 

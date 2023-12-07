@@ -1,14 +1,14 @@
 package com.example.travelapp.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.travelapp.R;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.travelapp.database.FirebaseHelper;
 
 public class StartingActivity extends AppCompatActivity {
     private TextView textView;
@@ -23,7 +23,10 @@ public class StartingActivity extends AppCompatActivity {
         textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         findViewById(R.id.textView12).setOnClickListener(view -> {
-            startActivity(new Intent(StartingActivity.this, MainActivity.class));
+            if (FirebaseHelper.isNewUser())
+                startActivity(new Intent(StartingActivity.this, SignInActivity.class));
+            else
+                startActivity(new Intent(StartingActivity.this, MainActivity.class));
         });
 
 
