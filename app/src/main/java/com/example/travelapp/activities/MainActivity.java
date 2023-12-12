@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     private ImageView home, favorite, profile;
     private TextView explore, holiday;
+    private EditText editTextSearch;
 
     FirebaseFirestore firestore;
 
@@ -38,37 +40,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText editTextSearch = findViewById(R.id.editTextSearch);
 
-        editTextSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                String searchText = s.toString();
-                // Implement your search logic here
+        editTextSearch = findViewById(R.id.editTextSearch);
 
-                // For example, if you have a list of destinations to filter
-                List<String> filteredDestinations = new ArrayList<>();
-                for (String destination : filteredDestinations ) {
-                    if (destination.toLowerCase().contains(searchText.toLowerCase())) {
-                        filteredDestinations.add(destination);
-                    }
-                }
-
-                // Update your UI or perform actions based on the filtered results
-                // For instance, display the filtered results in a RecyclerView or ListView
-                // adapter.updateData(filteredDestinations);
+        // Set up a listener for the search action
+        editTextSearch.setOnEditorActionListener((textView, actionId, keyEvent) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                performSearch(textView.getText().toString());
+                return true;
             }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Not needed for search functionality
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Not needed for search functionality
-            }
+            return false;
         });
+
+
 
 
         home = findViewById(R.id.home);
@@ -119,7 +103,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+// Optionally, set up a click listener for the search button
+        /*
+        Button searchButton = findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(view -> {
+            String searchText = searchEditText.getText().toString();
+            performSearch(searchText);
+        });
+        */
 
+
+    private void performSearch(String query) {
+        // Handle the search query (e.g., search in a list, database, etc.)
+        // You can implement your logic here
+        Toast.makeText(this, "Searching for: " + query, Toast.LENGTH_SHORT).show();
+    }
 
 
 

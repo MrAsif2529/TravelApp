@@ -127,12 +127,13 @@
 
     <TextView
         android:id="@+id/statecityDetails"
-        android:layout_width="365dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/dmsans"
-        android:text="The Burj Al Arab's graceful silhouette – meant to evoke the sail of a dhow (a traditional wooden cargo vessel) – is to Dubai what the Eiffel Tower is to Paris. Completed in 1999, this iconic landmark hotel sits on an artificial island and comes with its own helipad and a fleet of chauffeur-driven Rolls Royce limousines. Beyond the striking lobby, with its gold-leaf opulence and attention-grabbing fountain, lie 202 suites with more trimmings than a Christmas turkey."   app:layout_constraintEnd_toEndOf="@+id/textView15"
-        app:layout_constraintHorizontal_bias="0.008"
+        android:text="The Burj Al Arab's graceful silhouette – meant to evoke the sail of a dhow (a traditional wooden cargo vessel) – is to Dubai what the Eiffel Tower is to Paris. Completed in 1999, this iconic landmark hotel sits on an artificial island and comes with its own helipad and a fleet of chauffeur-driven Rolls Royce limousines. Beyond the striking lobby, with its gold-leaf opulence and attention-grabbing fountain, lie 202 suites with more trimmings than a Christmas turkey."
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
