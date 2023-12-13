@@ -8,25 +8,17 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.travelapp.R;
 import com.example.travelapp.fragments.FavouritesFragment;
 import com.example.travelapp.fragments.HomeFragment;
-import com.example.travelapp.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.Firebase;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView home, favorite, profile;
@@ -35,25 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseFirestore firestore;
 
+    public EditText editTextSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         editTextSearch = findViewById(R.id.editTextSearch);
-
-        // Set up a listener for the search action
-        editTextSearch.setOnEditorActionListener((textView, actionId, keyEvent) -> {
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                performSearch(textView.getText().toString());
-                return true;
-            }
-            return false;
-        });
-
-
-
 
         home = findViewById(R.id.home);
         findViewById(R.id.home).setOnClickListener(view -> {

@@ -54,9 +54,8 @@ public class HomeFragment extends Fragment {
         TextView seeAll = view.findViewById(R.id.seeAll);
 
         seeAll.setOnClickListener(v -> {
-         /*   SeeAllFragment fragment = new SeeAllFragment();
-            fragment.setItemsList(filterCity(selectedList));
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();*/
+            SeeAllFragment fragment = new SeeAllFragment();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
         });
 
         recRecyclerView = view.findViewById(R.id.recRecyclerView);

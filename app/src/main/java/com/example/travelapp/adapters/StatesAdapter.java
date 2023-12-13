@@ -12,17 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelapp.R;
-import com.example.travelapp.model.Places;
 import com.example.travelapp.activities.PlaceViewActivity;
+import com.example.travelapp.model.Places;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesViewHolder> {
     private final Context context;
-    private List<Places> statesdata;
+    private List<Places> mPlacesList;
+    private List<Places> originalList = new ArrayList<>();
+
 
     public StatesAdapter(List<Places> statesdata, Context context) {
-        this.statesdata = statesdata;
+        this.mPlacesList = statesdata;
+        originalList = new ArrayList<>();
+        originalList.addAll(mPlacesList);
         this.context = context;
 
     }
@@ -36,7 +42,7 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
     @Override
     public void onBindViewHolder(@NonNull StatesViewHolder holder, int position) {
-        Places clickedItem = statesdata.get(position);
+        Places clickedItem = mPlacesList.get(position);
 
         holder.cityname.setText(clickedItem.getCityName());
 //        holder.cityimage.setImageResource(clickedItem.getImage());
@@ -57,9 +63,37 @@ public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.StatesView
 
     @Override
     public int getItemCount() {
-        return statesdata.size();
+        return mPlacesList.size();
     }
 
+    public void filter(String query) {
+        mPlacesList.clear();
+
+        if (query.isEmpty()) {
+            mPlacesList.addAll(originalList);
+        } else {
+            query = query.toLowerCase(Locale.getDefault());
+
+            for (Places item : originalList) {
+                if (item.getCityName().toLowerCase(Locale.getDefault()).contains(query)) {
+                    mPlacesList.add(item);
+                }
+            }
+        }
+
+        notifyDataSetChanged();
+    }
+
+
+    public void refresh(List<Places> list) {
+        this.mPlacesList.clear();
+        this.mPlacesList.addAll(list);
+
+        this.originalList.clear();
+        this.originalList.addAll(mPlacesList);
+
+        notifyDataSetChanged();
+    }
 
     public static class StatesViewHolder extends RecyclerView.ViewHolder {
         ImageView cityimage;
