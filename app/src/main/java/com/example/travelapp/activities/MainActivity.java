@@ -2,12 +2,10 @@ package com.example.travelapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -17,13 +15,9 @@ import com.example.travelapp.fragments.FavouritesFragment;
 import com.example.travelapp.fragments.HomeFragment;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
     private ImageView home, favorite, profile;
     private TextView explore, holiday;
-    private EditText editTextSearch;
 
     FirebaseFirestore firestore;
 

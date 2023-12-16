@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.travelapp.R;
+import com.example.travelapp.database.FirebaseHelper;
 import com.example.travelapp.model.Places;
 
 import java.util.List;
@@ -38,9 +39,13 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
     @Override
     public void onBindViewHolder(@NonNull FavoritesViewHolder holder, int position) {
         Places item = favdata.get(position);
+
         holder.favcityname.setText(item.getCityName());
         holder.mRating.setText(item.getRating());
-//        holder.favcityimage.setImageResource(favoritesRecyclerViewItem.getImage());
+
+        holder.favcityimage.setOnClickListener(view -> {
+            new FirebaseHelper().unFavourite(item.getFavId());
+        });
 
         Glide.with(holder.itemView.getContext())
                 .asBitmap()

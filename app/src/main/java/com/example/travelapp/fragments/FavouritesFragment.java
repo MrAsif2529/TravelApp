@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.travelapp.R;
 import com.example.travelapp.adapters.FavoritesAdapter;
 import com.example.travelapp.database.FirebaseHelper;
+import com.example.travelapp.model.Favourite;
 import com.example.travelapp.model.Places;
 import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FavouritesFragment extends Fragment {
 
@@ -51,9 +53,11 @@ public class FavouritesFragment extends Fragment {
         mFireHelper.readFav(new FirebaseHelper.IFirebaseHelper() {
             @Override
             public void onSuccess(DataSnapshot snapshot) {
-                List<String> fav = new ArrayList<>();
-                for (DataSnapshot snap : snapshot.getChildren())
-                    fav.add(snapshot.child(snap.getKey()).child("place_id").getValue().toString());
+                List<Favourite> fav = new ArrayList<>();
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    String favid = snapshot.child(snap.getKey()).child("place_id").getValue().toString();
+                    fav.add(new Favourite(favid, snap.getKey()));
+                }
 
                 mFireHelper.readChild("", new FirebaseHelper.IFirebaseHelper() {
                     @Override
@@ -75,12 +79,12 @@ public class FavouritesFragment extends Fragment {
         });
     }
 
-    private void updateFavList(List<String> fav, DataSnapshot dataSnapshot) {
+    private void updateFavList(List<Favourite> fav, DataSnapshot dataSnapshot) {
         List<Places> places = new ArrayList<>();
 
         for (DataSnapshot snapshot : dataSnapshot.getChildren())
             for (DataSnapshot data : snapshot.getChildren()) {
-                if (fav.contains(data.getKey())) {
+                if (contains(fav, data.getKey()) != -1) {
                     String description = data.child("description").getValue().toString();
                     String image = data.child("image").getValue().toString();
                     String name = data.child("name").getValue().toString();
@@ -89,12 +93,22 @@ public class FavouritesFragment extends Fragment {
                     if (data.hasChild("ratings")) rating = getRatings(data.child("ratings"));
 
                     Places item = new Places(name, rating, image, false, description);
+                    item.setFavId(fav.get(contains(fav, data.getKey())).getFavKey());
                     places.add(item);
                 }
 
             }
 
         mFavAdapter.refresh(places);
+    }
+
+    private int contains(List<Favourite> favourites, String key) {
+        for (int i = 0; i < favourites.size(); i++) {
+            Favourite favourite = favourites.get(i);
+            if (Objects.equals(favourite.getFavId(), key)) return i;
+        }
+
+        return -1;
     }
 
     private String getRatings(DataSnapshot ratings) {

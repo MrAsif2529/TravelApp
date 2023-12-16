@@ -11,6 +11,25 @@ public class Places implements Serializable {
     private boolean fav;
 
     private String description;
+    private String favId;
+
+    private CityKeys cityKeys;
+
+    public void setCityKeys(CityKeys cityKeys) {
+        this.cityKeys = cityKeys;
+    }
+
+    public CityKeys getCityKeys() {
+        return cityKeys;
+    }
+
+    public void setFavId(String favId) {
+        this.favId = favId;
+    }
+
+    public String getFavId() {
+        return favId;
+    }
 
     public Places(String cityName, String rating, String image, boolean fav, String description) {
         this.cityName = cityName;
@@ -60,9 +79,16 @@ public class Places implements Serializable {
         this.fav = fav;
     }
 
-    @NonNull
     @Override
     public String toString() {
-        return super.toString();
+        return "Places{" +
+                "cityName='" + cityName + '\'' +
+                ", rating='" + rating + '\'' +
+                ", image='" + image + '\'' +
+                ", fav=" + fav +
+                ", description='" + description + '\'' +
+                ", favId='" + favId + '\'' +
+                ", cityKeys=" + cityKeys +
+                '}';
     }
 }

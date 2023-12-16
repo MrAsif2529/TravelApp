@@ -1,5 +1,7 @@
 package com.example.travelapp.database;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -9,6 +11,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class FirebaseHelper {
     private DatabaseReference getReference(String child) {
@@ -40,9 +44,26 @@ public class FirebaseHelper {
 
     }
 
+    private static final String TAG = "FirebaseHelper";
+
+    public void unFavourite(String key) {
+        getFavReference().child(key).removeValue().addOnCompleteListener(task -> {
+            Log.d(TAG, "deleted successfully.");
+        });
+    }
+
+    public void addFav(String placeID) {
+        DatabaseReference reference = getFavReference();
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("place_id", placeID);
+        reference.push().setValue(hashMap).addOnCompleteListener(task -> {
+            Log.d(TAG, "added to fav list");
+        });
+    }
+
     public void readFav(IFirebaseHelper iFirebaseHelper) {
         DatabaseReference reference = getFavReference();
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 iFirebaseHelper.onSuccess(snapshot);

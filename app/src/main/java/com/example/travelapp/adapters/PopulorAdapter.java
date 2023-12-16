@@ -55,10 +55,7 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
 
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(holder.itemView.getContext(), PlaceViewActivity.class);
-            intent.putExtra("name", item.getCityName());
-            intent.putExtra("description", item.getDescription());
-            intent.putExtra("image", item.getImage());
-            intent.putExtra("rating", item.getRating());
+            intent.putExtra("data", item);
             holder.itemView.getContext().startActivity(intent);
         });
     }

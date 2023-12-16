@@ -23,6 +23,7 @@ import com.example.travelapp.R;
 import com.example.travelapp.adapters.PopulorAdapter;
 import com.example.travelapp.adapters.RecAdapter;
 import com.example.travelapp.database.FirebaseHelper;
+import com.example.travelapp.model.CityKeys;
 import com.example.travelapp.model.Places;
 import com.google.firebase.database.DataSnapshot;
 
@@ -40,11 +41,11 @@ public class HomeFragment extends Fragment {
     private RecAdapter mRecAdapter;
     private String selectedList = ABUDABI;
 
-    private List<String> favList = new ArrayList<>();
+    private final List<String> favList = new ArrayList<>();
     private static final String TAG = "HomeFragment";
 
-    private List<Places> mPlaces = new ArrayList<>();
-    private FirebaseHelper mFirebaseHelper = new FirebaseHelper();
+    private final List<Places> mPlaces = new ArrayList<>();
+    private final FirebaseHelper mFirebaseHelper = new FirebaseHelper();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -137,7 +138,22 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        fetchPlace("dubai");
+        mFirebaseHelper.readFav(new FirebaseHelper.IFirebaseHelper() {
+            @Override
+            public void onSuccess(DataSnapshot snapshot) {
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    String fav = snapshot.child(snap.getKey()).child("place_id").getValue().toString();
+                    favList.add(fav);
+                }
+                fetchPlace("dubai");
+            }
+
+            @Override
+            public void onError(String message) {
+                fetchPlace("dubai");
+
+            }
+        });
     }
 
 
@@ -146,7 +162,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSuccess(DataSnapshot snapshot) {
                 Log.d(TAG, "onSuccess: " + snapshot.toString());
-                List<Places> places = filterCity(snapshot, place);
+                List<Places> places = filterCity(snapshot);
                 mRecAdapter.refresh(places);
 
                 mPopularAdapter.refresh(places);
@@ -178,11 +194,15 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private List<Places> filterCity(DataSnapshot dataSnapshot, String place) {
+    private List<Places> filterCity(DataSnapshot dataSnapshot) {
         List<Places> places = new ArrayList<>();
+
+        Log.d(TAG, "cityKey ---> " + dataSnapshot.getKey());
 
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
             if (snapshot.getKey() == null) continue;
+
+            Log.d(TAG, "cityKey" + snapshot.getKey());
 
             DataSnapshot data = dataSnapshot.child(snapshot.getKey());
             String description = data.child("description").getValue().toString();
@@ -192,7 +212,11 @@ public class HomeFragment extends Fragment {
 
             if (data.hasChild("ratings")) rating = getRatings(data.child("ratings"));
 
-            Places item = new Places(name, rating, image, false, description);
+            boolean fav = favList.contains(snapshot.getKey());
+            Places item = new Places(name, rating, image, fav, description);
+
+            CityKeys cityKeys = new CityKeys(dataSnapshot.getKey(), snapshot.getKey());
+            item.setCityKeys(cityKeys);
             places.add(item);
 
         }

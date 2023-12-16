@@ -64,9 +64,10 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.RecViewHolder> {
                     }
                 });
 
-        holder.favIcon.setOnClickListener(view -> {
-//            mCallBack.onFave(item)
-        });
+        if (item.isFav())
+            holder.favIcon.setImageResource(R.drawable.baseline_favorite_24);
+        else
+            holder.favIcon.setImageResource(R.drawable.baseline_gray);
 
 
     }
