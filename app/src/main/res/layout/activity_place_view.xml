@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -42,13 +43,12 @@
             android:src="@drawable/baseline_keyboard_arrow_left_24" />
 
 
-
     </androidx.cardview.widget.CardView>
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/preview_fav_place"
         android:layout_width="47dp"
         android:layout_height="50dp"
-        android:id="@+id/preview_fav_place"
         android:background="@drawable/curve_shap"
         android:elevation="2dp"
         android:src="@drawable/baseline_gray"
@@ -63,33 +63,31 @@
         android:id="@+id/statecityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/dmsans"
         android:text="Burj ul Arab"
         android:textColor="@color/Black"
-        android:fontFamily="@font/dmsans"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/showMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/dmsans"
         android:text="Show map"
         android:textColor="@color/Blue"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:fontFamily="@font/dmsans"
-        app:layout_constraintBottom_toBottomOf="@+id/statecityName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/statecityName"
-        app:layout_constraintTop_toTopOf="@+id/statecityName" />
+        app:layout_constraintEnd_toEndOf="@+id/preview_fav_place"
+        app:layout_constraintStart_toStartOf="@+id/preview_fav_place"
+        app:layout_constraintTop_toBottomOf="@+id/preview_fav_place" />
 
     <TextView
         android:id="@+id/textView15"
@@ -97,10 +95,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:drawableLeft="@drawable/baseline_star_24"
+        android:fontFamily="@font/dmsans"
         android:gravity="center"
         android:paddingLeft="5dp"
         android:text="4.5"
-        android:fontFamily="@font/dmsans"
         android:textColor="@color/Gray"
         android:textColorHint="@color/Gray"
         android:textSize="10sp"
@@ -115,10 +113,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:hint="(356 Reviews)"
-        android:textColorHint="@color/Gray"
-        android:textColor="@color/Gray"
         android:fontFamily="@font/dmsans"
+        android:hint="(356 Reviews)"
+        android:textColor="@color/Gray"
+        android:textColorHint="@color/Gray"
         app:layout_constraintBottom_toBottomOf="@+id/textView15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -127,7 +125,7 @@
 
     <TextView
         android:id="@+id/statecityDetails"
-        android:layout_width="wrap_content"
+        android:layout_width="366dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/dmsans"
@@ -145,8 +143,10 @@
         android:background="@drawable/curve_shap"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/statecityDetails"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="@+id/statecityDetails"
-        app:layout_constraintTop_toBottomOf="@+id/statecityDetails">
+        app:layout_constraintTop_toBottomOf="@+id/statecityDetails"
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageView
             android:layout_width="40dp"
@@ -175,6 +175,7 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/ratingArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White"
+    android:background="#FEFEFE"
     tools:context=".activities.MainActivity">
 
     <ImageView
@@ -94,6 +94,7 @@
         app:layout_constraintStart_toStartOf="@+id/holidaytxt"
         app:layout_constraintTop_toBottomOf="@+id/holidaytxt" />
 
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -101,9 +102,10 @@
         android:layout_margin="5dp"
         app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSearch" />
-
+        app:layout_constraintTop_toBottomOf="@+id/editTextSearch"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/view2"
