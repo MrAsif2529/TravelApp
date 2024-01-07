@@ -3,6 +3,7 @@ package com.example.travelapp.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,5 +20,8 @@ public class FragmentBottomSheet extends Fragment {
                              Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_bottom_sheet, container, false);
+    }
+
+    public void show(FragmentManager supportFragmentManager, String tag) {
     }
 }

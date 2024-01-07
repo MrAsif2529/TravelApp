@@ -88,21 +88,13 @@ public class PlaceViewActivity extends AppCompatActivity {
         ratingArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an instance of your bottom fragment
-                FragmentBottomSheet bottomFragmentSheet = new FragmentBottomSheet();
-
-                // Get the FragmentManager
-                FragmentManager fragmentManager = getSupportFragmentManager(); // For Activity, use getFragmentManager()
-
-                // Begin the fragment transaction
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                // Replace the existing fragment/container with your bottomFragment
-                fragmentTransaction.replace(R.id.fragment_container, bottomFragmentSheet); // Use bottomFragmentSheet instead of FragmentBottomSheet
-                fragmentTransaction.addToBackStack(null); // Add to back stack for back navigation
-
-                // Commit the transaction
-                fragmentTransaction.commit();
+                FragmentBottomSheet bottomSheetFragment = new FragmentBottomSheet();
+                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+                if (savedInstanceState == null) {
+                    getSupportFragmentManager().beginTransaction()
+                            .add(R.id.rating_fragment_container, new FragmentBottomSheet())
+                            .commit();
+                }
             }
         });
 
@@ -113,7 +105,7 @@ public class PlaceViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("google.navigation:q=22.659239,88.4355534&mode=l"));
+                        Uri.parse("google.navigation:q=25.1972,55.2744&mode=l"));
                 mapIntent.setPackage("com.google.android.apps.maps");
 
                 if (mapIntent.resolveActivity(getPackageManager()) != null) {
@@ -126,7 +118,14 @@ public class PlaceViewActivity extends AppCompatActivity {
                 }
             }
         });
-
+    ImageView backBtn = findViewById(R.id.backBtn);
+    backBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent b = new Intent(PlaceViewActivity.this, MainActivity.class);
+            startActivity(b);
+        }
+    });
 
     }
 }

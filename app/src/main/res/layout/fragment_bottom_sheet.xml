@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/curve_shap">
 
     <ImageView
@@ -78,15 +78,15 @@
         android:text="Cancel"
         android:textColor="@color/Blue"
         app:layout_constraintEnd_toStartOf="@+id/appCompatButton"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@+id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/appCompatButton"
-        android:layout_width="91dp"
-        android:layout_height="23dp"
+        android:layout_width="93dp"
+        android:layout_height="25dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_blue_bg"
         android:text="Submit"
