@@ -110,6 +110,7 @@ public class PlaceViewActivity extends AppCompatActivity {
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse("google.navigation:q=25.1972,55.2744&mode=l"));
                 mapIntent.setPackage("com.google.android.apps.maps");
+                
 
                 if (mapIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(mapIntent);
