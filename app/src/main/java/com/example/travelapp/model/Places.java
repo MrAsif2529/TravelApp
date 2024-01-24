@@ -1,7 +1,5 @@
 package com.example.travelapp.model;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
 
 public class Places implements Serializable {
@@ -9,7 +7,8 @@ public class Places implements Serializable {
     private String rating;
     private String image;
     private boolean fav;
-
+    private double latitude = 0.0;
+    private double longitude = 0.0;
     private String description;
     private String favId;
 
@@ -31,12 +30,30 @@ public class Places implements Serializable {
         return favId;
     }
 
-    public Places(String cityName, String rating, String image, boolean fav, String description) {
+    public Places(String cityName, String rating, String image, boolean fav, String description, double latitude, double longitude) {
         this.cityName = cityName;
         this.rating = rating;
         this.image = image;
         this.fav = fav;
         this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 
     public void setDescription(String description) {

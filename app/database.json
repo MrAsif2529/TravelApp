@@ -1,23 +1,12 @@
 {
   "cities": {
-    "dubai": {
-      "01": {
-        "description": "The Burj Khalifa[a] (known as the Burj Dubai prior to its inauguration) is a skyscraper in Dubai, United Arab Emirates. It is the world's tallest building. With a total height of 829.8 m (2,722 ft, or just over half a mile) and a roof height (excluding antenna, but including a 242.6 m spire)[2] of 828 m (2,717 ft), the Burj Khalifa has been the tallest structure and building in the world since its topping out in 2009, supplanting Taipei 101, the previous holder of that status",
-        "image": "https://luxeadventuretraveler.com/wp-content/uploads/2012/12/Luxe-Adventure-Traveler-Dubai-Burj-Khalifa-6.jpg",
-        "name": "Burj ul Khalifa",
-        "ratings": {
-          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
-            "rating": 4.5
-          },
-          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
-            "rating": 3.4
-          }
-        }
-      },
-      "02": {
+    "abudabi": {
+      "16": {
         "description": "The Burj Al Arab (Arabic: برج العرب, lit. 'Arab Tower') is a luxury hotel in Dubai, United Arab Emirates.[8] Developed and managed by Jumeirah, it is one of the tallest hotels in the world, although 39% of its total height is made up of non-occupiable space.[9][10][11] Burj Al Arab stands on an artificial island that is 280 m (920 ft) from Jumeirah Beach and is connected to the mainland by a private curving bridge. The shape of the structure is designed to resemble the sail of a ship. It has a helipad near the roof, at a height of 210 m (689 ft) above ground",
         "image": "https://www.hoteliermiddleeast.com/cloud/2021/09/23/1X78t9yk-burj-al-arab-jumeirah-jumeirah-beach-hotel-jumeirah-al-naseem-private-beach-drone_6-4-1200x800.jpg",
         "name": "Burj ul Arab",
+        "latitude" : 24.466667,
+        "longitude" : 54.366669,
         "ratings": {
           "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
             "rating": 3.3
@@ -26,63 +15,24 @@
             "rating": 4.4
           }
         }
-      }
-    },
-    "sharjah": {
-      "012": {
-        "description": "The tour combines several activities like Camel Riding, Dune Bashing, Dance Shows, Quad Biking, and Dinner; The Sharjah safari timings are usually 3:00 PM to 9:00 PM. The dress code is Modest, and comfortable walking shoes are recommended.",
-        "image": "https://www.cheapdesertsafaridubai.com/wp-content/uploads/2019/09/eveninh.jpg",
-        "name": "Desert safari sharjah",
+      },
+      "015": {
+        "description": "The Burj Khalifa[a] (known as the Burj Dubai prior to its inauguration) is a skyscraper in Dubai, United Arab Emirates. It is the world's tallest building. With a total height of 829.8 m (2,722 ft, or just over half a mile) and a roof height (excluding antenna, but including a 242.6 m spire)[2] of 828 m (2,717 ft), the Burj Khalifa has been the tallest structure and building in the world since its topping out in 2009, supplanting Taipei 101, the previous holder of that status",
+        "image": "https://luxeadventuretraveler.com/wp-content/uploads/2012/12/Luxe-Adventure-Traveler-Dubai-Burj-Khalifa-6.jpg",
+        "name": "Burj ul Khalifa",
+        "latitude" : 25.197525,
+        "longitude" : 55.274288,
         "ratings": {
           "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
             "rating": 4.5
           },
           "m30GoSeObOQLBS1IzWNHMSgfECB2": {
             "rating": 3.4
-          }
-        }
-      },
-      "021": {
-        "description": "Sharjah Aquarium features 20 tanks that recreate different local aquatic environments, from coral reefs and rock pools to lagoons and mangroves. An indoor walkway allows up-close viewing of the marine animals in these habitats.\n\nFor a family experience, try timing your visit with a scheduled fish feeding time or talk. Children will be delighted to learn more about the sea creatures and play on the interactive displays. The aquarium should be on the top of any list of things to with kids in Sharjah, especially for children’s edutainment. Families in Sharjah often bring kids here to learn about local marine life.\n\nIf you’re planning the aquarium as one of your places to visit in Sharjah at night, make sure to catch the sunset at the beautiful Al Khan beach first. The views here are as beautiful but distinctively different from the Sharjah Corniche. Then, take a quick tour of the aquarium before it closes in the late evening. Your ticket includes entry to the Sharjah Maritime Museum next door, where you can learn about the coast in more detail than any other Sharjah museum. After visiting these destinations, you will have checked off three popular Sharjah tourist places.",
-        "image": "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/200/2020/02/01071649/Slide1.jpg",
-        "name": "Sharjah Aquarium",
-        "ratings": {
-          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
-            "rating": 3.3
-          },
-          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
-            "rating": 4.4
           }
         }
       }
     },
     "ajman": {
-      "04": {
-        "description": "A place where one can bask in the glory of nature's wonders. As the sun sets and the sky transforms into a canvas of colors, it's the perfect time to unwind and take in the sights and sounds of the ocean. The gentle lull of the waves and the soft sand beneath your feet create a sense of tranquility that is hard to find elsewhere. And the best part? After 10pm, parking is fre...",
-        "image": "https://captaindunes.com/wp-content/uploads/2022/09/book-ajman-beach-tours.jpg",
-        "name": "Ajman Beach",
-        "ratings": {
-          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
-            "rating": 4.5
-          },
-          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
-            "rating": 3.4
-          }
-        }
-      },
-      "06": {
-        "description": "At a distance of 2 km from Ajman Bus Station, the Ajman Corniche is a four-kilometre-long esplanade overlooking the Arabian Gulf in the city of Ajman. It is one of the famous places to visit in Ajman.\n\nSituated along the northwestern shore of the emirate, the Corniche road or the Sheikh Humaid bin Rashid Al Nuaimi Street is lined with cafes and restaurants. It stretches from the roundabout just after Coral Beach Resort Sharjah to the five-star Kempinski Hotel Ajman. In 2014, the local authorities of Ajman decided to redesign the corniche to create more public spaces and facilities such as a bike path and jogging track for local residents. As part of the redevelopment, they decided to upgrade the lighting of 4 km esplanade as they wanted a more sustainable solution that would reduce the city's energy consumption and environmental footprint.",
-        "image": "https://www.trawell.in/admin/images/upload/47375688Ajman+Corniche+Residences.jpg",
-        "name": "Ajman Corniche",
-        "ratings": {
-          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
-            "rating": 3.3
-          },
-          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
-            "rating": 4.4
-          }
-        }
-      },
       "25": {
         "description": "This stunning mosque has the arabian architectural style which never fails to be impressive. You will enjoy visualizing the artistic details of the mosque.\n\nMoreover, it has a perfectly designed dome and four minarets, making it a picturesque building from inside and outside; in addition, it’s on the list of the free things to do in Ajman.\n\nDon’t forget to take a photo beside it as a memory; just a small tip is to take the photo from a low angle to capture the whole mosque. ",
         "image": "https://www.propertyfinder.ae/blog/wp-content/uploads/2021/04/sheikh-zayed-mosque-ajman-7V9R_1LCmjM.jpeg",
@@ -134,10 +84,36 @@
             "rating": 4.4
           }
         }
+      },
+      "04": {
+        "description": "A place where one can bask in the glory of nature's wonders. As the sun sets and the sky transforms into a canvas of colors, it's the perfect time to unwind and take in the sights and sounds of the ocean. The gentle lull of the waves and the soft sand beneath your feet create a sense of tranquility that is hard to find elsewhere. And the best part? After 10pm, parking is fre...",
+        "image": "https://captaindunes.com/wp-content/uploads/2022/09/book-ajman-beach-tours.jpg",
+        "name": "Ajman Beach",
+        "ratings": {
+          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
+            "rating": 4.5
+          },
+          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
+            "rating": 3.4
+          }
+        }
+      },
+      "06": {
+        "description": "At a distance of 2 km from Ajman Bus Station, the Ajman Corniche is a four-kilometre-long esplanade overlooking the Arabian Gulf in the city of Ajman. It is one of the famous places to visit in Ajman.\n\nSituated along the northwestern shore of the emirate, the Corniche road or the Sheikh Humaid bin Rashid Al Nuaimi Street is lined with cafes and restaurants. It stretches from the roundabout just after Coral Beach Resort Sharjah to the five-star Kempinski Hotel Ajman. In 2014, the local authorities of Ajman decided to redesign the corniche to create more public spaces and facilities such as a bike path and jogging track for local residents. As part of the redevelopment, they decided to upgrade the lighting of 4 km esplanade as they wanted a more sustainable solution that would reduce the city's energy consumption and environmental footprint.",
+        "image": "https://www.trawell.in/admin/images/upload/47375688Ajman+Corniche+Residences.jpg",
+        "name": "Ajman Corniche",
+        "ratings": {
+          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
+            "rating": 3.3
+          },
+          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
+            "rating": 4.4
+          }
+        }
       }
     },
-    "abudabi": {
-      "015": {
+    "dubai": {
+      "01": {
         "description": "The Burj Khalifa[a] (known as the Burj Dubai prior to its inauguration) is a skyscraper in Dubai, United Arab Emirates. It is the world's tallest building. With a total height of 829.8 m (2,722 ft, or just over half a mile) and a roof height (excluding antenna, but including a 242.6 m spire)[2] of 828 m (2,717 ft), the Burj Khalifa has been the tallest structure and building in the world since its topping out in 2009, supplanting Taipei 101, the previous holder of that status",
         "image": "https://luxeadventuretraveler.com/wp-content/uploads/2012/12/Luxe-Adventure-Traveler-Dubai-Burj-Khalifa-6.jpg",
         "name": "Burj ul Khalifa",
@@ -150,7 +126,35 @@
           }
         }
       },
-      "16": {
+      "02": {
+        "description": "The Burj Al Arab (Arabic: برج العرب, lit. 'Arab Tower') is a luxury hotel in Dubai, United Arab Emirates.[8] Developed and managed by Jumeirah, it is one of the tallest hotels in the world, although 39% of its total height is made up of non-occupiable space.[9][10][11] Burj Al Arab stands on an artificial island that is 280 m (920 ft) from Jumeirah Beach and is connected to the mainland by a private curving bridge. The shape of the structure is designed to resemble the sail of a ship. It has a helipad near the roof, at a height of 210 m (689 ft) above ground",
+        "image": "https://www.hoteliermiddleeast.com/cloud/2021/09/23/1X78t9yk-burj-al-arab-jumeirah-jumeirah-beach-hotel-jumeirah-al-naseem-private-beach-drone_6-4-1200x800.jpg",
+        "name": "Burj ul Arab",
+        "ratings": {
+          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
+            "rating": 3.3
+          },
+          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
+            "rating": 4.4
+          }
+        }
+      }
+    },
+    "fajouria": {
+      "07": {
+        "description": "The Burj Khalifa[a] (known as the Burj Dubai prior to its inauguration) is a skyscraper in Dubai, United Arab Emirates. It is the world's tallest building. With a total height of 829.8 m (2,722 ft, or just over half a mile) and a roof height (excluding antenna, but including a 242.6 m spire)[2] of 828 m (2,717 ft), the Burj Khalifa has been the tallest structure and building in the world since its topping out in 2009, supplanting Taipei 101, the previous holder of that status",
+        "image": "https://luxeadventuretraveler.com/wp-content/uploads/2012/12/Luxe-Adventure-Traveler-Dubai-Burj-Khalifa-6.jpg",
+        "name": "Burj ul Khalifa",
+        "ratings": {
+          "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
+            "rating": 4.5
+          },
+          "m30GoSeObOQLBS1IzWNHMSgfECB2": {
+            "rating": 3.4
+          }
+        }
+      },
+      "08": {
         "description": "The Burj Al Arab (Arabic: برج العرب, lit. 'Arab Tower') is a luxury hotel in Dubai, United Arab Emirates.[8] Developed and managed by Jumeirah, it is one of the tallest hotels in the world, although 39% of its total height is made up of non-occupiable space.[9][10][11] Burj Al Arab stands on an artificial island that is 280 m (920 ft) from Jumeirah Beach and is connected to the mainland by a private curving bridge. The shape of the structure is designed to resemble the sail of a ship. It has a helipad near the roof, at a height of 210 m (689 ft) above ground",
         "image": "https://www.hoteliermiddleeast.com/cloud/2021/09/23/1X78t9yk-burj-al-arab-jumeirah-jumeirah-beach-hotel-jumeirah-al-naseem-private-beach-drone_6-4-1200x800.jpg",
         "name": "Burj ul Arab",
@@ -192,11 +196,11 @@
         }
       }
     },
-    "fajouria": {
-      "07": {
-        "description": "The Burj Khalifa[a] (known as the Burj Dubai prior to its inauguration) is a skyscraper in Dubai, United Arab Emirates. It is the world's tallest building. With a total height of 829.8 m (2,722 ft, or just over half a mile) and a roof height (excluding antenna, but including a 242.6 m spire)[2] of 828 m (2,717 ft), the Burj Khalifa has been the tallest structure and building in the world since its topping out in 2009, supplanting Taipei 101, the previous holder of that status",
-        "image": "https://luxeadventuretraveler.com/wp-content/uploads/2012/12/Luxe-Adventure-Traveler-Dubai-Burj-Khalifa-6.jpg",
-        "name": "Burj ul Khalifa",
+    "sharjah": {
+      "012": {
+        "description": "The tour combines several activities like Camel Riding, Dune Bashing, Dance Shows, Quad Biking, and Dinner; The Sharjah safari timings are usually 3:00 PM to 9:00 PM. The dress code is Modest, and comfortable walking shoes are recommended.",
+        "image": "https://www.cheapdesertsafaridubai.com/wp-content/uploads/2019/09/eveninh.jpg",
+        "name": "Desert safari sharjah",
         "ratings": {
           "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
             "rating": 4.5
@@ -206,10 +210,10 @@
           }
         }
       },
-      "08": {
-        "description": "The Burj Al Arab (Arabic: برج العرب, lit. 'Arab Tower') is a luxury hotel in Dubai, United Arab Emirates.[8] Developed and managed by Jumeirah, it is one of the tallest hotels in the world, although 39% of its total height is made up of non-occupiable space.[9][10][11] Burj Al Arab stands on an artificial island that is 280 m (920 ft) from Jumeirah Beach and is connected to the mainland by a private curving bridge. The shape of the structure is designed to resemble the sail of a ship. It has a helipad near the roof, at a height of 210 m (689 ft) above ground",
-        "image": "https://www.hoteliermiddleeast.com/cloud/2021/09/23/1X78t9yk-burj-al-arab-jumeirah-jumeirah-beach-hotel-jumeirah-al-naseem-private-beach-drone_6-4-1200x800.jpg",
-        "name": "Burj ul Arab",
+      "021": {
+        "description": "Sharjah Aquarium features 20 tanks that recreate different local aquatic environments, from coral reefs and rock pools to lagoons and mangroves. An indoor walkway allows up-close viewing of the marine animals in these habitats.\n\nFor a family experience, try timing your visit with a scheduled fish feeding time or talk. Children will be delighted to learn more about the sea creatures and play on the interactive displays. The aquarium should be on the top of any list of things to with kids in Sharjah, especially for children’s edutainment. Families in Sharjah often bring kids here to learn about local marine life.\n\nIf you’re planning the aquarium as one of your places to visit in Sharjah at night, make sure to catch the sunset at the beautiful Al Khan beach first. The views here are as beautiful but distinctively different from the Sharjah Corniche. Then, take a quick tour of the aquarium before it closes in the late evening. Your ticket includes entry to the Sharjah Maritime Museum next door, where you can learn about the coast in more detail than any other Sharjah museum. After visiting these destinations, you will have checked off three popular Sharjah tourist places.",
+        "image": "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/200/2020/02/01071649/Slide1.jpg",
+        "name": "Sharjah Aquarium",
         "ratings": {
           "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
             "rating": 3.3
@@ -223,11 +227,20 @@
   },
   "favorites": {
     "Jmlhr2PHVVeoPMC99NaMwULh8qp1": {
-      "Jmlhr2PHVVeoPMC99NaMwULh8qp1324321": {
+      "-Nnu-oCrgf4ReQUYA9Y7": {
         "place_id": "02"
       },
-      "Jmlhr2PHVVeoPMC99NaMwULh8qp143554": {
+      "-Nnu-uRKiqgg1Ps6Oa_7": {
+        "place_id": "012"
+      },
+      "-Nnu-xkd9vppV9rvQ_a7": {
+        "place_id": "06"
+      },
+      "-Nnu47-DDzqHRM66tun1": {
         "place_id": "01"
+      },
+      "-NnuY4mMKiox1JgYj7WY": {
+        "place_id": "04"
       }
     }
   }

@@ -208,12 +208,22 @@ public class HomeFragment extends Fragment {
             String description = data.child("description").getValue().toString();
             String image = data.child("image").getValue().toString();
             String name = data.child("name").getValue().toString();
+
+            double latitude = 0.0;
+            if (data.hasChild("latitude"))
+                latitude = (double) data.child("latitude").getValue();
+
+            double longitude = 0.0;
+
+            if (data.hasChild("longitude"))
+                longitude = (double) data.child("longitude").getValue();
+
             String rating = "0.0";
 
             if (data.hasChild("ratings")) rating = getRatings(data.child("ratings"));
 
             boolean fav = favList.contains(snapshot.getKey());
-            Places item = new Places(name, rating, image, fav, description);
+            Places item = new Places(name, rating, image, fav, description, latitude, longitude);
 
             CityKeys cityKeys = new CityKeys(dataSnapshot.getKey(), snapshot.getKey());
             item.setCityKeys(cityKeys);

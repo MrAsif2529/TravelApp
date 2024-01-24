@@ -1,7 +1,9 @@
 package com.example.travelapp.activities;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -51,6 +53,9 @@ public class PlaceViewActivity extends AppCompatActivity {
         ImageView favImageView = findViewById(R.id.preview_fav_place);
         favImageView.setImageResource(places.isFav() ? R.drawable.baseline_favorite_24 : R.drawable.baseline_gray);
 
+        findViewById(R.id.textView11).setOnClickListener(view -> {
+            redirectMap(places.getLatitude(), places.getLongitude());
+        });
         favImageView.setOnClickListener(view -> {
             if (!places.isFav()) {
                 mHelper.addFav(places.getCityKeys().getPlaceId());
@@ -77,5 +82,11 @@ public class PlaceViewActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void redirectMap(double latitude, double longitude) {
+        String uri = "http://maps.google.com/maps?saddr=" + 31.5204 + "," + 74.3587 + "&daddr=" + latitude + "," + longitude;
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        startActivity(intent);
     }
 }

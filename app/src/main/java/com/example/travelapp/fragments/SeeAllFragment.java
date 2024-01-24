@@ -100,7 +100,7 @@ public class SeeAllFragment extends Fragment {
 
             if (data.hasChild("ratings")) rating = getRatings(data.child("ratings"));
 
-            Places item = new Places(name, rating, image, false, description);
+            Places item = new Places(name, rating, image, false, description,0.0,0.0);
             places.add(item);
 
         }
