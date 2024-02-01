@@ -20,13 +20,18 @@ import com.example.travelapp.R;
 import com.example.travelapp.activities.PlaceViewActivity;
 import com.example.travelapp.model.Places;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularViewHolder> {
-    public List<Places> data;
-    public PopulorAdapter(List<Places> data) {
-        this.data= data;
+    public List<Places> mPlacesList;
+    private List<Places> originalList = new ArrayList<>();
 
+    public PopulorAdapter(List<Places> data) {
+        this.mPlacesList = data;
+        originalList = new ArrayList<>();
+        originalList.addAll(mPlacesList);
     }
 
     @NonNull
@@ -38,7 +43,7 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
 
     @Override
     public void onBindViewHolder(@NonNull PopularViewHolder holder, int position) {
-        Places item = data.get(position);
+        Places item = mPlacesList.get(position);
         holder.popularcityname.setText(item.getCityName());
         holder.mRating.setText(item.getRating());
 //        holder.cityimage.setImageResource(popularRecyclerViewItem.getImage());
@@ -60,9 +65,28 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
         });
     }
 
+    public void filter(String query) {
+        mPlacesList.clear();
+
+        if (query.isEmpty()) {
+            mPlacesList.addAll(originalList);
+        } else {
+            query = query.toLowerCase(Locale.getDefault());
+
+            for (Places item : originalList) {
+                if (item.getCityName().toLowerCase(Locale.getDefault()).contains(query)) {
+                    mPlacesList.add(item);
+                }
+            }
+        }
+
+        notifyDataSetChanged();
+    }
+
+
     @Override
     public int getItemCount() {
-        return data.size();
+        return mPlacesList.size();
     }
 
 
@@ -83,8 +107,12 @@ public class PopulorAdapter extends RecyclerView.Adapter<PopulorAdapter.PopularV
     }
 
     public void refresh(List<Places> list) {
-        data.clear();
-        this.data = list;
+        this.mPlacesList.clear();
+        this.mPlacesList.addAll(list);
+
+        this.originalList.clear();
+        this.originalList.addAll(mPlacesList);
+
         notifyDataSetChanged();
     }
 }

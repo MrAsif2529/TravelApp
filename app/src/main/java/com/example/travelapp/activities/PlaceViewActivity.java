@@ -79,10 +79,16 @@ public class PlaceViewActivity extends AppCompatActivity {
         });
 
         favImageView.setOnClickListener(view -> {
+            Log.d(TAG, "isFav " + places.isFav());
+
             if (!places.isFav()) {
                 mHelper.addFav(places.getCityKeys().getPlaceId());
                 favImageView.setImageResource(R.drawable.baseline_favorite_24);
                 places.setFav(true);
+            }else {
+//                mHelper.addFav(places.getCityKeys().getPlaceId());
+                favImageView.setImageResource(R.drawable.baseline_gray);
+                places.setFav(false);
             }
 
         });
