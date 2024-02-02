@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +21,15 @@ public class FirebaseHelper {
             return FirebaseDatabase.getInstance().getReference("cities");
         else
             return FirebaseDatabase.getInstance().getReference("cities").child(child);
+    }
+
+    public Task<Void> addRatings(String city, String id, double rating) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("rating", rating);
+
+        return getReference(city).child(id).child("ratings")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .setValue(hashMap);
     }
 
     private DatabaseReference getFavReference() {

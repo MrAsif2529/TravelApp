@@ -30,14 +30,25 @@ public class Places implements Serializable {
         return favId;
     }
 
-    public Places(String cityName, String rating, String image, boolean fav, String description, double latitude, double longitude) {
+    private int count;
+
+    public Places(String cityName, String rating, String image, boolean fav, String description, double latitude, double longitude,int count) {
         this.cityName = cityName;
+        this.count = count;
         this.rating = rating;
         this.image = image;
         this.fav = fav;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public void setLatitude(double latitude) {

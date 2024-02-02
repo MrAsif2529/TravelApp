@@ -103,14 +103,14 @@
         android:textColor="@color/Gray"
         android:textColorHint="@color/Gray"
         android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView16"
+        app:layout_constraintEnd_toStartOf="@+id/rating_count"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@+id/statecityName"
         app:layout_constraintTop_toBottomOf="@+id/statecityName" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/rating_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

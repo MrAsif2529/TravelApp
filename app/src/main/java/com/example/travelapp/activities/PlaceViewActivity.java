@@ -68,8 +68,10 @@ public class PlaceViewActivity extends AppCompatActivity {
 
         cityName.setText(places.getCityName());
 
-        String rating = getIntent().getStringExtra(places.getRating());
-        mRating.setText(rating);
+        mRating.setText(places.getRating() + "");
+
+        TextView rating_count = findViewById(R.id.rating_count);
+        rating_count.setText(places.getCount() + " Reviews");
 
         ImageView favImageView = findViewById(R.id.preview_fav_place);
         favImageView.setImageResource(places.isFav() ? R.drawable.baseline_favorite_24 : R.drawable.baseline_gray);
@@ -113,9 +115,10 @@ public class PlaceViewActivity extends AppCompatActivity {
         ImageView ratingArrow = findViewById(R.id.ratingArrow);
         ratingArrow.setOnClickListener(v -> {
             FragmentBottomSheet bottomSheetFragment = new FragmentBottomSheet();
-            bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+            bottomSheetFragment.show(places.getCityKeys().getCityId(), places.getCityKeys().getPlaceId());
+
             if (savedInstanceState == null) {
-                getSupportFragmentManager().beginTransaction().add(R.id.rating_fragment_container, new FragmentBottomSheet()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.rating_fragment_container, bottomSheetFragment).commit();
             }
         });
 

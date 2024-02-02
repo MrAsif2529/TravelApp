@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -240,11 +241,16 @@ public class HomeFragment extends Fragment {
                 longitude = (double) data.child("longitude").getValue();
 
             String rating = "0.0";
+            int count = 0;
 
-            if (data.hasChild("ratings")) rating = getRatings(data.child("ratings"));
+            if (data.hasChild("ratings")){
+                Pair<String, Integer> pair = getRatings(data.child("ratings"));
+                rating = pair.first;
+                count = pair.second;
+            }
 
             boolean fav = favList.contains(snapshot.getKey());
-            Places item = new Places(name, rating, image, fav, description, latitude, longitude);
+            Places item = new Places(name, rating, image, fav, description, latitude, longitude,count);
 
             CityKeys cityKeys = new CityKeys(dataSnapshot.getKey(), snapshot.getKey());
             item.setCityKeys(cityKeys);
@@ -255,12 +261,15 @@ public class HomeFragment extends Fragment {
         return places;
     }
 
-    private String getRatings(DataSnapshot ratings) {
+    private Pair<String,Integer> getRatings(DataSnapshot ratings) {
         float rating = 0.0f;
-        for (DataSnapshot snapshot : ratings.getChildren())
+        int count = 0;
+        for (DataSnapshot snapshot : ratings.getChildren()){
             rating = rating + Float.parseFloat(ratings.child(snapshot.getKey()).child("rating").getValue().toString());
+            count = count + 1;
+        }
 
-        return Float.toString(rating);
+        return new Pair<>(Float.toString(rating),count);
     }
 
 
